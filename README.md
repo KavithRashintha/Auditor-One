@@ -10,7 +10,7 @@ Follow these steps to run Auditor-One locally:
 
 - Python 3.11+
 - Node.js 18+ (and npm)
-- An OpenAI API Key (or Anthropic API Key)
+- An OpenAI API Key, Anthropic API Key, or Hugging Face API Token
 
 ### 2. Clone the Repository
 
@@ -35,7 +35,7 @@ Configure environment variables:
 cp .env.example .env
 ```
 
-Open `.env` and add your `OPENAI_API_KEY`.
+Open `.env` and configure your API keys depending on your chosen provider (e.g., `OPENAI_API_KEY` or `HF_API_TOKEN`).
 
 Start the FastAPI server:
 
@@ -141,9 +141,9 @@ We implemented a strict security layer that resolves target domains to IP addres
 
 ### Strategy Pattern for LLMs
 
-The architecture uses the **Strategy Pattern** for the `LLMOrchestrator` (`BaseLLMOrchestrator`, `OpenAIOrchestrator`, `AnthropicOrchestrator`).
+The architecture uses the **Strategy Pattern** for the `LLMOrchestrator` (`BaseLLMOrchestrator`, `OpenAIOrchestrator`, `AnthropicOrchestrator`, `HFLLMOrchestrator`).
 
-- *Trade-off*: By abstracting the provider, we accept a slightly more complex backend structure instead of tightly coupling to the OpenAI SDK. This allows easy swapping of models via the `.env` file (`LLM_PROVIDER=anthropic`).
+- *Trade-off*: By abstracting the provider, we accept a slightly more complex backend structure instead of tightly coupling to the OpenAI SDK. This allows easy swapping of models via the `.env` file (e.g., `LLM_PROVIDER=hf` or `LLM_PROVIDER=anthropic`).
 
 ---
 
