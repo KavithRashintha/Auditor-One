@@ -36,6 +36,7 @@ RULES:
 - Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.
   Each item must have exactly these keys:
   {"priority": 1, "category": "SEO", "issue": "...", "actionable_recommendation": "...", "metric_reference": "..."}
+- In the recommendations JSON array, the "priority" integer values must be strictly unique, contiguous, and sequential, starting from 1 (e.g. 1 for the highest priority, 2 for the second highest, 3, etc.). Never assign the same priority value to multiple items.
 - Do NOT output anything after the JSON array.
 """
 
