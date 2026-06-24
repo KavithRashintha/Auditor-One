@@ -13,6 +13,10 @@ app.add_middleware(
     allow_headers=["Content-Type", "Authorization", "Accept"],
 )
 
+from backend.api.router import router as api_router
+
+app.include_router(api_router)
+
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
