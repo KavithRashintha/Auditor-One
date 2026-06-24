@@ -8,3 +8,4 @@ pydantic-settings
 openai
 anthropic
 python-dotenv
+playwright

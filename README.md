@@ -8,9 +8,12 @@ Follow these steps to run Auditor-One locally:
 
 ### 1. Prerequisites
 
-- Python 3.11+
-- Node.js 18+ (and npm)
-- An OpenAI API Key, Anthropic API Key, or Hugging Face API Token
+- **Python 3.11+** (Make sure to check "Add Python to PATH" during installation on Windows)
+- **Node.js 18+** (with npm)
+- An API key for one of the supported LLM providers:
+  - OpenAI API Key (`OPENAI_API_KEY`)
+  - Anthropic API Key (`ANTHROPIC_API_KEY`)
+  - Hugging Face API Token (`HF_API_TOKEN`)
 
 ### 2. Clone the Repository
 
@@ -21,33 +24,108 @@ cd Auditor-One
 
 ### 3. Backend Setup
 
-Set up the Python virtual environment and install dependencies:
+Follow the instructions matching your operating system to set up the backend.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r backend/requirements.txt
+#### 🍏 macOS & Linux
+
+1. **Create and activate the virtual environment:**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+2. **Install Python dependencies:**
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+
+3. **Install Playwright Chromium browser:**
+   ```bash
+   playwright install chromium
+   ```
+
+4. **Configure environment variables:**
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Start the FastAPI server:**
+   ```bash
+   uvicorn backend.main:app --reload
+   ```
+
+#### 🪟 Windows
+
+1. **Create and activate the virtual environment:**
+   
+   Using **PowerShell**:
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1
+   ```
+   
+   Using **Command Prompt**:
+   ```cmd
+   python -m venv .venv
+   .venv\Scripts\activate.bat
+   ```
+
+2. **Install Python dependencies:**
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+
+3. **Install Playwright Chromium browser:**
+   ```bash
+   playwright install chromium
+   ```
+
+4. **Configure environment variables:**
+   
+   Using **PowerShell**:
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+   
+   Using **Command Prompt**:
+   ```cmd
+   copy .env.example .env
+   ```
+
+5. **Start the FastAPI server:**
+   ```bash
+   python -m uvicorn backend.main:app --reload
+   ```
+
+---
+
+### 4. Configure Environment Variables
+
+Open the newly created `.env` file in the root directory and configure the environment variables:
+
+```ini
+# LLM Provider selection: "openai" | "anthropic" | "hf"
+LLM_PROVIDER=openai
+
+# Provider Keys (only configure the one you are using)
+OPENAI_API_KEY=sk-your-openai-key
+ANTHROPIC_API_KEY=sk-your-anthropic-key-optional
+HF_API_TOKEN=hf_your-huggingface-token-optional
+
+# Hugging Face Settings (optional)
+HF_MODEL=meta-llama/Llama-3.3-70B-Instruct
+HF_ENDPOINT=https://router.huggingface.co/v1
+
+# Application URLs & Logging
+FRONTEND_URL=http://localhost:5173
+LOG_DIR=./logs
 ```
 
-Configure environment variables:
+---
 
-```bash
-cp .env.example .env
-```
+### 5. Frontend Setup
 
-Open `.env` and configure your API keys depending on your chosen provider (e.g., `OPENAI_API_KEY` or `HF_API_TOKEN`).
-
-Start the FastAPI server:
-
-```bash
-uvicorn backend.main:app --reload
-```
-
-The backend will run on `http://127.0.0.1:8000`.
-
-### 4. Frontend Setup
-
-In a new terminal window, navigate to the `frontend/` directory:
+The frontend setup is identical across platforms. Open a new terminal/command prompt window, navigate to the `frontend/` directory, and run the following commands:
 
 ```bash
 cd frontend
@@ -55,7 +133,7 @@ npm install
 npm run dev
 ```
 
-The frontend will run on `http://localhost:5173`. Open this URL in your browser to use the tool.
+The frontend application will start and run on `http://localhost:5173` (or `http://localhost:5174` if the port is in use). Open the URL in your web browser.
 
 ---
 
