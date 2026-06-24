@@ -17,6 +17,7 @@
 - ✅ M6: Agency Heuristics Engine (Layer 3.5)
 - ✅ M7: SSE Gateway (Mock Mode, Stage 2)
 - ✅ M8: React SPA Shell & SSE Client
+- ✅ M9: LLM Orchestrator & Stream Splitter (Stage 3)
 
 ## Known Decisions
 
