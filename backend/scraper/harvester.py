@@ -36,28 +36,45 @@ class SelectolaxPageHarvester:
         except httpx.RequestError as e:
             raise HTTPException(status_code=502, detail=f"Harvester Error: Request failed - {str(e)}")
 
-        if "text/html" not in response.headers.get("Content-Type", "").lower():
-            raise HTTPException(status_code=415, detail="Harvester Error: Unsupported Media Type. Expected text/html.")
+        content_type = response.headers.get("Content-Type", "").lower()
+        is_html = "text/html" in content_type
 
-        html_content = response.text
-        metrics = self._extract_metrics(html_content, url)
+        if is_html:
+            html_content = response.text
+            metrics = self._extract_metrics(html_content, url)
+        else:
+            # Non-HTML content-type (e.g. UberEats CDN returns application/json or no header).
+            # Don't try to parse raw bytes as DOM — go straight to Playwright.
+            _log(f"[HARVESTER] Non-HTML Content-Type '{content_type}' — skipping httpx parse, using Playwright directly.")
+            metrics = None
+            html_content = None
 
-        # Phase 2: If content is thin, the page is likely JS-rendered — use Playwright
-        is_thin = (
-            metrics.word_count < _MIN_WORD_COUNT
+        # Decide whether Playwright fallback is needed:
+        # - always when httpx returned non-HTML
+        # - when httpx HTML is a thin shell (JS-rendered SPA)
+        needs_playwright = html_content is None or (
+            metrics is not None
+            and metrics.word_count < _MIN_WORD_COUNT
             and metrics.headings.h1 == 0
             and metrics.headings.h2 == 0
             and metrics.links.internal == 0
             and metrics.links.external == 0
         )
 
-        if is_thin:
-            _log(f"[HARVESTER] Thin content detected (word_count={metrics.word_count}). Falling back to Playwright...")
+        if needs_playwright:
+            reason = "non-HTML response" if html_content is None else f"thin content (word_count={metrics.word_count})"
+            _log(f"[HARVESTER] Falling back to Playwright: {reason}")
             rendered_html = await self._render_with_playwright(url)
             if rendered_html:
                 html_content = rendered_html
                 metrics = self._extract_metrics(html_content, url)
                 _log(f"[HARVESTER] Playwright rendered — word_count={metrics.word_count}, h1={metrics.headings.h1}")
+            elif html_content is None:
+                # Playwright also failed and we have nothing to parse
+                raise HTTPException(
+                    status_code=415,
+                    detail="Harvester Error: Page returned non-HTML content and Playwright could not render it."
+                )
             else:
                 _log("[HARVESTER] Playwright fallback failed, using httpx results")
 
