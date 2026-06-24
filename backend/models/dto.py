@@ -24,6 +24,8 @@ class ImagesDTO(BaseModel):
 class MetadataDTO(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
+    title_length: Optional[int] = None       # chars; SEO ideal: 30-60
+    description_length: Optional[int] = None # chars; SEO ideal: 70-160
 
     model_config = ConfigDict(strict=True)
 

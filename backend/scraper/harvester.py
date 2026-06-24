@@ -171,6 +171,11 @@ class SelectolaxPageHarvester:
                 missing_alt=missing_alt,
                 missing_alt_percentage=missing_alt_percentage
             ),
-            metadata=MetadataDTO(title=title, description=description)
+            metadata=MetadataDTO(
+                title=title,
+                description=description,
+                title_length=len(title) if title else None,
+                description_length=len(description) if description else None,
+            )
         )
 

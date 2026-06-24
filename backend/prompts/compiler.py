@@ -14,7 +14,7 @@ OUTPUT FORMAT — FOLLOW THIS EXACTLY:
 Write your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:
 
 ## SEO Structure
-[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]
+[Analyse title tag (title_length: ideal 30-60 chars), meta description (description_length: ideal 70-160 chars), H1/H2 count, heading hierarchy, and link equity based on the scraped metrics. Flag if title or description length is outside the ideal range.]
 
 ## Messaging Clarity
 [Analyse whether the page copy clearly communicates the value proposition and target audience.]

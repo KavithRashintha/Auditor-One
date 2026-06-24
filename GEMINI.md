@@ -3,7 +3,7 @@
 ## Status
 
 - **Phase**: Complete — Post-delivery hardening
-- **Last Updated**: 2026-06-24T23:41:00+05:30
+- **Last Updated**: 2026-06-25T00:10:00+05:30
 
 ## Completed Endpoints / Features
 
@@ -30,6 +30,8 @@
 - ✅ LLM prompt enforces 5 distinct labeled sections (SEO/Messaging/CTA/Content/UX)
 - ✅ InsightPanel safety strip of leaked ---REC_SPLIT--- delimiter
 - ✅ Unique recommendation priority constraints and router normalization
+- ✅ MetadataDTO title_length and description_length fields with color-coded LengthBadge pills (green, amber, red) for SEO threshold range checks
+
 
 ## Known Decisions
 
