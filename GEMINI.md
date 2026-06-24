@@ -2,8 +2,8 @@
 
 ## Status
 
-- **Phase**: Complete — All Milestones Reached
-- **Last Updated**: 2026-06-24T17:18:00+05:30
+- **Phase**: Complete — Post-delivery hardening
+- **Last Updated**: 2026-06-24T19:45:00+05:30
 
 ## Completed Endpoints / Features
 
@@ -22,6 +22,10 @@
 - ✅ M11: Hardening, Error Wrapping & SSRF Finalization
 - ✅ M12: Pytest Suite
 - ✅ M13: README & Delivery Polish
+- ✅ Hybrid Harvester: httpx + Playwright fallback for CSR sites
+- ✅ HuggingFace LLM Provider via router.huggingface.co
+- ✅ SSE \r\n parsing fix in frontend fetchSSE.ts
+- ✅ CORS wildcard headers fix
 
 ## Known Decisions
 
@@ -30,13 +34,18 @@
 - **SSE Client**: fetch() + ReadableStream — EventSource forbidden (GET-only by HTML5 spec)
 - **Harvester return**: tuple (ScrapedMetricsDTO, raw_html) to feed both metrics layer and DOM Lexer
 - **LLM Default**: OpenAI as primary; Anthropic wired via Strategy pattern
+- **LLM HuggingFace**: via router.huggingface.co/v1 OpenAI-compatible endpoint (Llama 3.3 70B default)
+- **Harvester Strategy**: httpx first (fast ~200ms), Playwright fallback for JS-rendered CSR pages (~5s)
 - **Token Cap**: 12,800 chars (~3,200 tokens) truncation on DOM Markdown output
 - **Logging**: Async disk write via LocalDiskTraceRepository to LOG_DIR after LLM completes
 
 ## Environment Variables Required
 
-- OPENAI_API_KEY (required)
-- LLM_PROVIDER: "openai" | "anthropic" (required)
+- LLM_PROVIDER: "openai" | "anthropic" | "hf" (required)
 - FRONTEND_URL: CORS allowed origin (required)
 - LOG_DIR: path for reasoning trace JSON files (required)
+- OPENAI_API_KEY (conditional — only if LLM_PROVIDER=openai)
 - ANTHROPIC_API_KEY (conditional — only if LLM_PROVIDER=anthropic)
+- HF_API_TOKEN (conditional — only if LLM_PROVIDER=hf)
+- HF_MODEL (optional — defaults to meta-llama/Llama-3.3-70B-Instruct)
+- HF_ENDPOINT (optional — defaults to <https://router.huggingface.co/v1>)
