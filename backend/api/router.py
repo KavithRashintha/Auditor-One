@@ -25,8 +25,8 @@ async def audit_endpoint(request: AuditRequest):
             # 1. SSRF validate URL
             try:
                 validate_url(request.url)
-            except ValueError as e:
-                yield ServerSentEvent(event="error", data=json.dumps({"stage": "SSRF", "message": str(e)}))
+            except HTTPException as e:
+                yield ServerSentEvent(event="error", data=json.dumps({"stage": "SSRF", "message": e.detail}))
                 return
 
             # 2. Harvest Metrics
