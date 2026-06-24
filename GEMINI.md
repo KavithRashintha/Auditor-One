@@ -12,6 +12,7 @@
 - ✅ M1: Project Scaffolding & Config
 - ✅ M2: Data Contracts & Pydantic Models
 - ✅ M3: SSRF Security Layer
+- ✅ M4: Deterministic Harvester (Layer 2)
 
 ## Known Decisions
 
