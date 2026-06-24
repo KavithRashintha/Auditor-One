@@ -16,6 +16,7 @@
 - ✅ M5: DOM Lexer & Token Hard-Cap (Layer 3)
 - ✅ M6: Agency Heuristics Engine (Layer 3.5)
 - ✅ M7: SSE Gateway (Mock Mode, Stage 2)
+- ✅ M8: React SPA Shell & SSE Client
 
 ## Known Decisions
 
