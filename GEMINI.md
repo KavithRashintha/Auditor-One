@@ -3,7 +3,7 @@
 ## Status
 
 - **Phase**: Complete — Post-delivery hardening
-- **Last Updated**: 2026-06-24T20:20:00+05:30
+- **Last Updated**: 2026-06-24T21:42:00+05:30
 
 ## Completed Endpoints / Features
 
@@ -26,6 +26,9 @@
 - ✅ HuggingFace LLM Provider via router.huggingface.co
 - ✅ SSE \r\n parsing fix in frontend fetchSSE.ts
 - ✅ CORS wildcard headers fix
+- ✅ Playwright networkidle → domcontentloaded + wait_for_function hydration fix
+- ✅ LLM prompt enforces 5 distinct labeled sections (SEO/Messaging/CTA/Content/UX)
+- ✅ InsightPanel safety strip of leaked ---REC_SPLIT--- delimiter
 
 ## Known Decisions
 
@@ -38,6 +41,8 @@
 - **Harvester Strategy**: httpx first (fast ~200ms), Playwright fallback for JS-rendered CSR pages (~5s)
 - **Token Cap**: 12,800 chars (~3,200 tokens) truncation on DOM Markdown output
 - **Logging**: Async disk write via LocalDiskTraceRepository to LOG_DIR after LLM completes
+- **Playwright Wait Strategy**: domcontentloaded (30s) + wait_for_function(innerText > 100 chars, 12s) — networkidle never settles on SPAs with background polling
+- **Prompt Section Contract**: System prompt enumerates 5 explicit ## headings the LLM MUST produce (SEO Structure, Messaging Clarity, CTA Usage, Content Depth, UX Concerns)
 
 ## Environment Variables Required
 
