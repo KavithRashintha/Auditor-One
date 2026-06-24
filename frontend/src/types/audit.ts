@@ -18,6 +18,8 @@ export interface ImagesMetrics {
 export interface MetadataMetrics {
   title: string | null;
   description: string | null;
+  title_length: number | null;
+  description_length: number | null;
 }
 
 export interface ScrapedMetrics {

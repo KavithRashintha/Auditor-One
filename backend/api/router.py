@@ -170,6 +170,10 @@ async def audit_endpoint(request: AuditRequest):
                 except Exception as fallback_e:
                     _log(f"[STAGE 8] ✗ Fallback parsing also failed: {fallback_e}")
 
+            if recommendations_data:
+                for idx, r in enumerate(recommendations_data, start=1):
+                    r["priority"] = idx
+
             yield ServerSentEvent(event="recommendations", data=json.dumps(recommendations_data))
             
             # 8.5 Save trace to repository
