@@ -9,13 +9,13 @@ export function RecommendationCards({ recommendations }: RecommendationCardsProp
   if (!recommendations || recommendations.length === 0) return null;
 
   return (
-    <div className="mt-8 space-y-4">
-      <h3 className="text-lg font-semibold text-slate-200 flex items-center gap-2 mb-4">
+    <div className="mt-12 mb-10 space-y-6">
+      <h3 className="text-lg font-semibold text-slate-200 flex items-center gap-2">
         <Target className="text-emerald-400" />
         Actionable Recommendations
       </h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {recommendations.sort((a, b) => a.priority - b.priority).map((rec, idx) => (
           <div key={idx} className="bg-slate-800/80 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600 transition-colors">
             <div className="flex items-start justify-between mb-3">

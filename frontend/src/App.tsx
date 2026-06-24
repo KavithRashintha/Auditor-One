@@ -90,20 +90,24 @@ function App() {
 
         {/* Main Dashboard Layout */}
         {(stage !== 'idle' || metrics) && !error && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-            {/* Column A: Fixed Metrics */}
-            <div className="sticky top-8">
-              <MetricsPanel metrics={metrics} />
+          <div className="space-y-6">
+            {/* Top Row: Metrics + Insights side-by-side, same fixed height */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+              {/* Column A: Page Metrics — sticky so it doesn't scroll away */}
+              <div className="sticky top-8">
+                <MetricsPanel metrics={metrics} />
+              </div>
+
+              {/* Column B: Streaming AI Insights */}
+              <InsightPanel content={insightText} />
             </div>
 
-            {/* Column B: Streaming Insights & Recommendations */}
-            <div className="space-y-6">
-              <InsightPanel content={insightText} />
-              
+            {/* Bottom Layer: Actionable Recommendations — full width beneath both panels */}
+            {recommendations.length > 0 && (
               <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
                 <RecommendationCards recommendations={recommendations} />
               </div>
-            </div>
+            )}
           </div>
         )}
 
