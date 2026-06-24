@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+httpx
+selectolax
+sse-starlette
+pydantic>=2
+pydantic-settings
+openai
+anthropic
+python-dotenv

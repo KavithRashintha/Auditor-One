@@ -1,0 +1,50 @@
+[
+  {
+    "metric_path": "headings.h1",
+    "condition": "equals",
+    "threshold": 0,
+    "rule": "AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately."
+  },
+  {
+    "metric_path": "headings.h1",
+    "condition": "greater_than",
+    "threshold": 1,
+    "rule": "AGENCY RULE: Multiple H1 tags detected. Search engines expect exactly one H1. Consolidate to a single primary heading."
+  },
+  {
+    "metric_path": "metadata.description",
+    "condition": "is_null",
+    "threshold": null,
+    "rule": "AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results."
+  },
+  {
+    "metric_path": "images.missing_alt_percentage",
+    "condition": "greater_than",
+    "threshold": 50,
+    "rule": "AGENCY RULE: Over 50% of images lack alt text. This violates WCAG 2.1 accessibility standards and fails Google Image indexation."
+  },
+  {
+    "metric_path": "cta_count",
+    "condition": "equals",
+    "threshold": 0,
+    "rule": "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required."
+  },
+  {
+    "metric_path": "cta_count",
+    "condition": "greater_than",
+    "threshold": 8,
+    "rule": "AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate."
+  },
+  {
+    "metric_path": "word_count",
+    "condition": "less_than",
+    "threshold": 300,
+    "rule": "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential."
+  },
+  {
+    "metric_path": "links.external",
+    "condition": "equals",
+    "threshold": 0,
+    "rule": "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  }
+]
