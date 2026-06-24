@@ -31,3 +31,6 @@ dist-ssr/
 *.sw?
 .DS_Store
 AI-Native_Software_Engineer_Assignment.md
+
+# Docker
+docker-compose.override.yml

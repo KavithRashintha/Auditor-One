@@ -2,14 +2,19 @@
 
 > AI-powered website auditor that combines deterministic harvesting with structured LLM reasoning to produce grounded, actionable insights — streamed live to the browser.
 
+> 🚀 **Two Deployment & Setup Options Available:**
+> - **🐳 Containerised (Docker):** Run the entire stack (FastAPI, React, Nginx, Playwright headless Chromium) with a single command: `docker compose up --build`. Requires **only** Docker installed on your host machine.
+> - **⚡ Native (Clone & Run):** Run backend and frontend processes natively on your local machine using Python virtual environments (`venv`) and `npm`. Full step-by-step instructions provided for both macOS and Windows.
+
 ---
 
 ## Table of Contents
 
 1. [Tech Stack](#-tech-stack)
 2. [Prerequisites](#-prerequisites)
-3. [Quick Start](#-quick-start)
-4. [Step-by-Step Setup](#-step-by-step-setup)
+3. [Quick Start (Local)](#-quick-start)
+4. [🐳 Run with Docker](#-run-with-docker)
+5. [Step-by-Step Setup](#-step-by-step-setup)
    - [1 · Clone](#1--clone-the-repository)
    - [2 · Verify Python](#2--verify-python-version)
    - [3 · Create Virtual Environment](#3--create-the-virtual-environment)
@@ -17,13 +22,13 @@
    - [5 · Install Playwright Browser](#5--install-playwright-chromium)
    - [6 · Configure Environment Variables](#6--configure-environment-variables)
    - [7 · Frontend Setup](#7--frontend-setup)
-5. [Running the Application](#-running-the-application)
-6. [Validate the Setup](#-validate-the-setup)
-7. [Project Structure](#-project-structure)
-8. [Architecture Diagram](#️-architecture-diagram)
-9. [AI Design Decisions & Prompting Strategy](#-ai-design-decisions--prompting-strategy)
-10. [Technical Trade-offs](#️-technical-trade-offs)
-11. [Known Limitations & Future Improvements](#-known-limitations--future-improvements)
+6. [Running the Application](#-running-the-application)
+7. [Validate the Setup](#-validate-the-setup)
+8. [Project Structure](#-project-structure)
+9. [Architecture Diagram](#️-architecture-diagram)
+10. [AI Design Decisions & Prompting Strategy](#-ai-design-decisions--prompting-strategy)
+11. [Technical Trade-offs](#️-technical-trade-offs)
+12. [Known Limitations & Future Improvements](#-known-limitations--future-improvements)
 
 ---
 
@@ -41,6 +46,90 @@
 | **HTTP Client** | httpx | — |
 | **Streaming Protocol** | Server-Sent Events (SSE) | — |
 | **LLM Providers** | OpenAI / Anthropic / HuggingFace | — |
+
+---
+
+---
+
+## 🐳 Run with Docker
+
+The containerised option requires no Python or Node.js installation — only Docker.
+
+### Prerequisites
+
+- **Docker Desktop** (Mac/Windows) or **Docker Engine + Docker Compose** (Linux) — [docs.docker.com/get-docker](https://docs.docker.com/get-docker/)
+
+### 1 · Clone and configure `.env`
+
+```bash
+git clone <repository_url>
+cd Auditor-One
+cp .env.example .env    # Windows: copy .env.example .env
+```
+
+Open `.env` and fill in your LLM key. For example, using HuggingFace:
+
+```ini
+LLM_PROVIDER=hf
+HF_API_TOKEN=hf_your-access-token
+HF_MODEL=meta-llama/Llama-3.3-70B-Instruct
+HF_ENDPOINT=https://router.huggingface.co/v1
+FRONTEND_URL=http://localhost:3000
+LOG_DIR=./logs
+```
+
+> **Note:** In Docker mode the frontend runs on port 3000. Set `FRONTEND_URL=http://localhost:3000` so the backend's CORS policy allows it.
+
+### 2 · Build and start all services
+
+```bash
+# Run from: Auditor-One/  (repo root)
+docker compose up --build
+```
+
+Docker will:
+1. Build the **backend** image — installs Python deps and Playwright Chromium (~5 min on first run)
+2. Build the **frontend** image — runs `npm ci` + `vite build`, then packages with nginx
+3. Start both containers
+
+Wait until you see:
+```
+auditor-one-backend   | INFO:     Application startup complete.
+auditor-one-frontend  | ... nginx started
+```
+
+Open **http://localhost:3000** in your browser.
+
+### Port Reference
+
+| Service | URL |
+|---|---|
+| React Frontend (nginx) | http://localhost:3000 |
+| FastAPI Backend | http://localhost:8000 |
+| API Docs | http://localhost:8000/docs |
+
+### Useful Docker commands
+
+```bash
+# Run in background (detached)
+docker compose up --build -d
+
+# View live logs
+docker compose logs -f
+
+# Stop all containers
+docker compose down
+
+# Rebuild after code changes
+docker compose up --build
+
+# Destroy containers + images (full clean)
+docker compose down --rmi all
+```
+
+### Reasoning traces with Docker
+
+The `logs/` directory is bind-mounted from your host into the container. Traces written by the backend are immediately visible on your machine at `./logs/`.
 
 ---
 
