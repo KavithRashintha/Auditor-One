@@ -3,7 +3,7 @@
 ## Status
 
 - **Phase**: Complete — Post-delivery hardening
-- **Last Updated**: 2026-06-25T01:51:00+05:30
+- **Last Updated**: 2026-06-25T02:10:00+05:30
 
 ## Completed Endpoints / Features
 
@@ -31,6 +31,7 @@
 - ✅ InsightPanel safety strip of leaked ---REC_SPLIT--- delimiter
 - ✅ Unique recommendation priority constraints and router normalization
 - ✅ MetadataDTO title_length and description_length fields with color-coded LengthBadge pills (green, amber, red) for SEO threshold range checks
+- ✅ Harvester non-HTML Content-Type fallthrough: non-text/html responses (e.g. UberEats CDN) route directly to Playwright instead of raising 415
 
 ## Known Decisions
 
