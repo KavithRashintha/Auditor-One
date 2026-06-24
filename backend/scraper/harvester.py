@@ -64,10 +64,10 @@ class SelectolaxPageHarvester:
         return metrics, html_content
 
     async def _render_with_playwright(self, url: str) -> str | None:
-        """Launch headless Chromium, wait for network idle, return rendered HTML."""
-        try:
-            from playwright.async_api import async_playwright
+        """Launch headless Chromium, render page content, return HTML after JS hydration."""
+        from playwright.async_api import async_playwright, TimeoutError as PWTimeout
 
+        try:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
                 context = await browser.new_context(
@@ -77,18 +77,31 @@ class SelectolaxPageHarvester:
                 )
                 page = await context.new_page()
 
+                # domcontentloaded fires once HTML is parsed — fast even for SPAs
+                # Catch goto timeout so the browser stays alive and we can still grab the DOM
                 try:
-                    await page.goto(url, wait_until="networkidle", timeout=15000)
-                    # Extra wait for late-loading SPAs
-                    await page.wait_for_timeout(2000)
-                    html = await page.content()
-                finally:
-                    await browser.close()
+                    await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                except PWTimeout:
+                    _log("[HARVESTER] goto domcontentloaded timeout — grabbing partial DOM")
 
+                # Poll until React/Vue has injected visible text into the body (max 12s)
+                try:
+                    await page.wait_for_function(
+                        "document.body && document.body.innerText.trim().length > 100",
+                        timeout=12000,
+                    )
+                except PWTimeout:
+                    # Partial hydration — still better than the empty httpx shell
+                    _log("[HARVESTER] hydration wait timeout — proceeding with partial DOM")
+
+                html = await page.content()
+                await browser.close()
                 return html
+
         except Exception as e:
-            _log(f"[HARVESTER] Playwright error: {e}")
+            _log(f"[HARVESTER] Playwright hard error: {e}")
             return None
+
 
     def _extract_metrics(self, html_content: str, url: str) -> ScrapedMetricsDTO:
         """Parse HTML with selectolax and extract all deterministic metrics."""
