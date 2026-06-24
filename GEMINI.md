@@ -3,7 +3,7 @@
 ## Status
 
 - **Phase**: Complete — Post-delivery hardening
-- **Last Updated**: 2026-06-25T02:10:00+05:30
+- **Last Updated**: 2026-06-25T02:27:00+05:30
 
 ## Completed Endpoints / Features
 
@@ -32,6 +32,8 @@
 - ✅ Unique recommendation priority constraints and router normalization
 - ✅ MetadataDTO title_length and description_length fields with color-coded LengthBadge pills (green, amber, red) for SEO threshold range checks
 - ✅ Harvester non-HTML Content-Type fallthrough: non-text/html responses (e.g. UberEats CDN) route directly to Playwright instead of raising 415
+- ✅ README: comprehensive local setup guide with macOS system-Python diagnosis, pip bootstrap fallback, Windows PowerShell execution policy fix, and 4-step validation section
+- ✅ .env.example: corrected HF_ENDPOINT to router.huggingface.co/v1 and HF_MODEL to Llama-3.3-70B-Instruct
 
 ## Known Decisions
 
