@@ -38,7 +38,8 @@ export async function streamAudit(url: string, handlers: SSEHandlers): Promise<v
       const { done, value } = await reader.read();
       if (done) break;
 
-      buffer += decoder.decode(value, { stream: true });
+      // Normalize \r\n to \n — SSE spec uses \r\n but JS split needs clean \n
+      buffer += decoder.decode(value, { stream: true }).replace(/\r\n/g, "\n").replace(/\r/g, "\n");
       const parts = buffer.split("\n\n");
       buffer = parts.pop() || "";
 
@@ -57,6 +58,8 @@ export async function streamAudit(url: string, handlers: SSEHandlers): Promise<v
           }
         }
 
+        if (!dataContent) continue;
+
         try {
           const parsedData = JSON.parse(dataContent);
           
@@ -65,7 +68,6 @@ export async function streamAudit(url: string, handlers: SSEHandlers): Promise<v
               handlers.onMetrics(parsedData);
               break;
             case "insight_chunk":
-              // chunk is just a raw string in M7 mock
               handlers.onInsightChunk(parsedData);
               break;
             case "recommendations":
@@ -90,3 +92,4 @@ export async function streamAudit(url: string, handlers: SSEHandlers): Promise<v
     handlers.onError("NETWORK", error instanceof Error ? error.message : "Unknown error");
   }
 }
+
