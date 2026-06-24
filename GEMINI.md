@@ -10,6 +10,7 @@
 - ✅ Rules Loaded
 - ✅ Implementation Plan Created (13 milestones)
 - ✅ M1: Project Scaffolding & Config
+- ✅ M2: Data Contracts & Pydantic Models
 
 ## Known Decisions
 
