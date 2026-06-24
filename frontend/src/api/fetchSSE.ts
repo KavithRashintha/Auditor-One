@@ -11,7 +11,7 @@ export interface SSEHandlers {
 
 export async function streamAudit(url: string, handlers: SSEHandlers): Promise<void> {
   try {
-    const response = await fetch("http://localhost:8000/api/v1/audit", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL ?? "http://localhost:8000"}/api/v1/audit`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

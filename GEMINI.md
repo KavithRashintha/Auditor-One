@@ -3,7 +3,7 @@
 ## Status
 
 - **Phase**: Complete — Post-delivery hardening
-- **Last Updated**: 2026-06-25T02:27:00+05:30
+- **Last Updated**: 2026-06-25T03:22:00+05:30
 
 ## Completed Endpoints / Features
 
@@ -34,6 +34,9 @@
 - ✅ Harvester non-HTML Content-Type fallthrough: non-text/html responses (e.g. UberEats CDN) route directly to Playwright instead of raising 415
 - ✅ README: comprehensive local setup guide with macOS system-Python diagnosis, pip bootstrap fallback, Windows PowerShell execution policy fix, and 4-step validation section
 - ✅ .env.example: corrected HF_ENDPOINT to router.huggingface.co/v1 and HF_MODEL to Llama-3.3-70B-Instruct
+- ✅ Docker containerisation: Dockerfile.backend (python:3.11-slim + Playwright Chromium), Dockerfile.frontend (multi-stage Vite build + nginx), docker-compose.yml, nginx.conf, VITE_API_URL build arg
+- ✅ README: Callout and instructions highlighting both Docker and Native (Clone & Run) execution options
+- ✅ Checked and confirmed dual setup support for local deployment
 
 ## Known Decisions
 
@@ -49,6 +52,7 @@
 - **Playwright Wait Strategy**: domcontentloaded (30s) + wait_for_function(innerText > 100 chars, 12s) — networkidle never settles on SPAs with background polling
 - **Prompt Section Contract**: System prompt enforces 5 explicit ## headings the LLM MUST produce (SEO Structure, Messaging Clarity, CTA Usage, Content Depth, UX Concerns)
 - **Unique Priorities**: System prompt explicitly commands unique sequential priorities, backed by backend router normalization fallback to prevent duplicates
+- **Docker Frontend Base Image**: Node 22 Alpine + `npm install` to support Vite 8 engine constraints and prevent local lockfile sync mismatch crashes.
 
 ## Environment Variables Required
 

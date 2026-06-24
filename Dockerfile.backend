@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Auditor-One Backend — FastAPI + Playwright (Chromium)
+# ─────────────────────────────────────────────────────────────────────────────
+FROM python:3.11-slim
+
+# System dependencies required by Playwright's bundled Chromium
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Core Chromium runtime libraries
+    libnss3 \
+    libatk-bridge2.0-0 \
+    libdrm2 \
+    libxkbcommon0 \
+    libgbm1 \
+    libasound2 \
+    libxrandr2 \
+    libxfixes3 \
+    libxdamage1 \
+    libxcomposite1 \
+    libxshmfence1 \
+    libgtk-3-0 \
+    libpango-1.0-0 \
+    libcairo2 \
+    # Font support (prevents Chromium rendering blank pages)
+    fonts-liberation \
+    fontconfig \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Install Python dependencies first (layer cached unless requirements change)
+COPY backend/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install Playwright Chromium browser inside the image
+RUN playwright install chromium
+
+# Copy application source
+COPY backend/ ./backend/
+COPY agency_rules.json ./agency_rules.json
+
+# Create the logs directory (volume-mounted at runtime but must exist in image)
+RUN mkdir -p /app/logs
+
+EXPOSE 8000
+
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

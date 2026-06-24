@@ -1,0 +1,38 @@
+services:
+
+  # ── Backend: FastAPI + Uvicorn + Playwright ─────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: auditor-one-backend
+    restart: unless-stopped
+    env_file:
+      - .env                        # loads LLM_PROVIDER, API keys, LOG_DIR, etc.
+    environment:
+      # Override FRONTEND_URL so CORS allows requests from the frontend container
+      FRONTEND_URL: http://localhost:3000
+      LOG_DIR: /app/logs
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist reasoning trace logs on the host so they survive container restarts
+      - ./logs:/app/logs
+    # Playwright's headless Chromium needs /dev/shm expanded to avoid crashes
+    shm_size: "256mb"
+
+  # ── Frontend: Vite build → nginx static server ──────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        # Tell the Vite build where the backend API lives.
+        # In Docker, the browser talks to the host-published backend port.
+        VITE_API_URL: http://localhost:8000
+    container_name: auditor-one-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
