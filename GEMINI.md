@@ -20,6 +20,7 @@
 - ✅ M9: LLM Orchestrator & Stream Splitter (Stage 3)
 - ✅ M10: Trace Repository & Prompt Logging (Stage 4)
 - ✅ M11: Hardening, Error Wrapping & SSRF Finalization
+- ✅ M12: Pytest Suite
 
 ## Known Decisions
 
