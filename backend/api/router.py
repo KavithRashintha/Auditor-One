@@ -12,6 +12,9 @@ from backend.scraper.dom_lexer import DOMLexer
 from backend.heuristics.engine import evaluate_heuristics, AGENCY_RULES
 from backend.prompts.compiler import build_system_prompt, build_user_prompt
 from backend.llm.factory import get_llm_orchestrator
+from backend.logging.local_disk import LocalDiskTraceRepository
+import uuid
+from datetime import datetime, timezone
 
 router = APIRouter(prefix="/api/v1")
 
@@ -120,7 +123,30 @@ async def audit_endpoint(request: AuditRequest):
 
             yield ServerSentEvent(event="recommendations", data=json.dumps(recommendations_data))
             
-            # TODO: Log generation trace to disk in M11
+            # 8.5 Save trace to repository
+            try:
+                trace_id = str(uuid.uuid4())
+                trace = {
+                    "trace_id": trace_id,
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "target_url": request.url,
+                    "system_prompt": system_prompt,
+                    "user_prompt": user_prompt,
+                    "raw_llm_output": full_response_buffer,
+                    "scraped_metrics": metrics.model_dump(),
+                    "heuristics_fired": heuristics,
+                    "recommendations": recommendations_data
+                }
+                repo = LocalDiskTraceRepository()
+                saved_path = await repo.save(trace)
+                
+                # Yield meta event
+                yield ServerSentEvent(event="prompt_log_meta", data=json.dumps({
+                    "trace_id": trace_id,
+                    "path": saved_path
+                }))
+            except Exception as trace_err:
+                print(f"Failed to save trace: {trace_err}")
 
             # 9. Yield done
             yield ServerSentEvent(event="done", data=json.dumps({}))
