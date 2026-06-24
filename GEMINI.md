@@ -13,6 +13,7 @@
 - ✅ M2: Data Contracts & Pydantic Models
 - ✅ M3: SSRF Security Layer
 - ✅ M4: Deterministic Harvester (Layer 2)
+- ✅ M5: DOM Lexer & Token Hard-Cap (Layer 3)
 
 ## Known Decisions
 

@@ -50,7 +50,8 @@ class SelectolaxPageHarvester:
         internal_links = 0
         external_links = 0
         for a_tag in tree.css("a[href]"):
-            href = a_tag.attributes.get("href", "").strip()
+            attrs = a_tag.attributes or {}
+            href = (attrs.get("href") or "").strip()
             if not href or href.startswith("javascript:") or href.startswith("mailto:") or href.startswith("tel:"):
                 continue
             
@@ -66,7 +67,9 @@ class SelectolaxPageHarvester:
         
         cta_regex = re.compile(r"(?i)(get started|book|contact|demo|sign up|buy|try|download)")
         for a_tag in tree.css("a"):
-            if "btn" not in a_tag.attributes.get("class", "") and "button" not in a_tag.attributes.get("class", ""):
+            attrs = a_tag.attributes or {}
+            class_attr = attrs.get("class") or ""
+            if "btn" not in class_attr and "button" not in class_attr:
                 text = a_tag.text(strip=True)
                 if cta_regex.search(text):
                     cta_count += 1
@@ -74,7 +77,7 @@ class SelectolaxPageHarvester:
         # 8. Images
         img_tags = tree.css("img")
         total_images = len(img_tags)
-        missing_alt = sum(1 for img in img_tags if not img.attributes.get("alt", "").strip())
+        missing_alt = sum(1 for img in img_tags if not ((img.attributes or {}).get("alt") or "").strip())
         missing_alt_percentage = (missing_alt / total_images * 100) if total_images > 0 else 0.0
 
         # 9. Metadata
@@ -82,7 +85,7 @@ class SelectolaxPageHarvester:
         title = title_tag.text(strip=True) if title_tag else None
 
         desc_tag = tree.css_first('meta[name="description"]')
-        description = desc_tag.attributes.get("content", "").strip() if desc_tag else None
+        description = ((desc_tag.attributes or {}).get("content") or "").strip() if desc_tag else None
 
         metrics = ScrapedMetricsDTO(
             word_count=word_count,
