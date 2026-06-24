@@ -23,7 +23,7 @@ export function InsightPanel({ content }: InsightPanelProps) {
   }
 
   return (
-    <div className="h-[600px] w-full rounded-xl border border-slate-700 bg-slate-800/80 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-600 flex flex-col">
+    <div className="h-[600px] w-full rounded-xl border border-slate-700 bg-slate-800/80 px-6 pt-8 pb-6 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-600 flex flex-col">
       <h2 className="text-xl font-semibold text-slate-100 flex items-center gap-2 mb-6 shrink-0">
         <Sparkles className="text-purple-400" />
         AI Analysis

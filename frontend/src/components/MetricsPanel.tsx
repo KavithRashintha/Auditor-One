@@ -15,7 +15,7 @@ export function MetricsPanel({ metrics }: MetricsPanelProps) {
   }
 
   return (
-    <div className="h-[600px] w-full rounded-xl border border-slate-700 bg-slate-800/80 p-6 overflow-y-auto space-y-6 scrollbar-thin scrollbar-thumb-slate-600">
+    <div className="h-[600px] w-full rounded-xl border border-slate-700 bg-slate-800/80 px-6 pt-8 pb-6 overflow-y-auto space-y-6 scrollbar-thin scrollbar-thumb-slate-600">
       <h2 className="text-xl font-semibold text-slate-100 flex items-center gap-2 mb-6">
         <LayoutTemplate className="text-blue-400" />
         Page Metrics
@@ -56,21 +56,19 @@ export function MetricsPanel({ metrics }: MetricsPanelProps) {
 
       {/* Headings */}
       <div className="bg-slate-900/60 rounded-lg p-4 border border-slate-700/50">
-        <div className="text-sm text-slate-400 mb-2 font-medium">Heading Structure</div>
-        <div className="flex justify-between items-center text-slate-300">
+        <div className="text-sm text-slate-400 mb-2 font-medium text-center">Heading Structure</div>
+        <div className="grid grid-cols-3 text-slate-300">
           <div className="flex flex-col items-center">
             <span className="text-lg font-bold text-slate-100">{metrics.headings.h1}</span>
-            <span className="text-xs">H1</span>
+            <span className="text-xs text-slate-500 font-medium">H1</span>
           </div>
-          <div className="h-8 w-px bg-slate-700"></div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center border-x border-slate-700/50">
             <span className="text-lg font-bold text-slate-100">{metrics.headings.h2}</span>
-            <span className="text-xs">H2</span>
+            <span className="text-xs text-slate-500 font-medium">H2</span>
           </div>
-          <div className="h-8 w-px bg-slate-700"></div>
           <div className="flex flex-col items-center">
             <span className="text-lg font-bold text-slate-100">{metrics.headings.h3}</span>
-            <span className="text-xs">H3</span>
+            <span className="text-xs text-slate-500 font-medium">H3</span>
           </div>
         </div>
       </div>
