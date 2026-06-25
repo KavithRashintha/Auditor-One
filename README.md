@@ -1,3 +1,5 @@
+> For Prompt logs/reasoning traces, refer to the /logs directory. Below you have the runnable instructions.
+
 # Auditor-One · AI-Native Website Audit Tool
 
 > AI-powered website auditor that combines deterministic harvesting with structured LLM reasoning to produce grounded, actionable insights — streamed live to the browser.
