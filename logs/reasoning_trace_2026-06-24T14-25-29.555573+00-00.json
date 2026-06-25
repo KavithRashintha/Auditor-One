@@ -1,0 +1,70 @@
+{
+  "trace_id": "c889f49e-13df-40bb-b9e8-9f9c2e721a01",
+  "timestamp": "2026-06-24T14:25:29.555573+00:00",
+  "target_url": "https://www.docflex.net/home",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA. \nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nINSTRUCTIONS:\n1. Stream your analysis progressively. Focus on:\n   - SEO structure & Messaging clarity\n   - CTA usage & Content depth\n   - Obvious UX or structural concerns\n2. You MUST ground every insight in the provided factual data. Do NOT hallucinate metrics.\n3. Write your analysis in clean Markdown format.\n4. When you have finished streaming your analysis, output EXACTLY the following delimiter on a new line:\n   ---REC_SPLIT---\n5. Immediately after the delimiter, output a valid JSON array of 3-5 recommendations.\n   Each recommendation must have this exact structure:\n   {\n     \"priority\": 1, // 1 to 3\n     \"category\": \"SEO\", // e.g. SEO, UX, Content, Conversion\n     \"issue\": \"Specific issue based on metrics\",\n     \"actionable_recommendation\": \"What to do to fix it\",\n     \"metric_reference\": \"e.g. headings.h1 or images.missing_alt\"\n   }\n6. Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 708,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 14,\n    \"h3\": 5\n  },\n  \"links\": {\n    \"internal\": 6,\n    \"external\": 5\n  },\n  \"cta_count\": 13,\n  \"images\": {\n    \"total\": 2,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"DocFlex AI | Home\",\n    \"description\": \"DocFlex AI is an AI-powered healthcare platform. Get medical insights, prescription support, drug interaction checks, and clinical decision support for doctors, pharmacists, nurses, and medical students.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate.\n\n### PAGE CONTENT (MARKDOWN)\nNext-Gen Medical AI\n\n# Transform Healthcare with AI\n\nInstant answers from an AI trained in medical knowledge. No more endless flipping through books. ⚡ Quick insights • 🎯 Confident decisions care\n\nTry it now Watch demo\n\nY\n\nM\n\nO\n\nL\nTrusted by 1K+ Healthcare Professionals\n\nAbout Us\n\n## Shaping the future of Medical Intelligence\n\nDocFlex AI is Sri Lanka’s first medical AI platform, designed to transform how healthcare professionals access essential drug information. Built and developed by Team DocFlex, it serves as a trusted, efficient, and intelligent medical assistant, empowering better decision-making in clinical practice.\n\n## Our Goal\n\nDocFlex AI aims to save healthcare professionals valuable time by streamlining access to essential medical information. Our goal is to enhance daily workflows through intelligent assistance, provide a smoother and more reliable user experience, and deliver accurate answers backed by trusted references such as the BNF, BNFC, BP, and etc for improved clarity.\n\n## Features and Accuracy\n\nDocFlex AI maintains a strong 98% accuracy rate, supported by continuous model training and improvements. Every response includes clear references for instant verification, ensuring reliability. User feedback is essential reporting incorrect details through the feedback section helps refine our system and preserve DocFlex AI as a trusted resource.\n\n## The Future of DocFlex AI\n\nWe are focused on making DocFlex AI more user-friendly while steadily expanding its features. Future plans include collaborating with healthcare institutions and professionals to enhance accuracy, reliability, and real-world performance. As the platform evolves, DocFlex AI will offer smarter, faster, and continually improving support for medical practice\n\nPricing Plans\n\n## Flexible options to fit your needs\n\nChoose from our affordable pricing plans designed to suit individuals, teams, and enterprises. Pay only for what you need with no hidden fees.\n\n### Free\n\nLKR 0\n\nNo hidden fees, Forever free\n\nLimited access to DocFlex AI\n\nUp to 5 questions per day\n\nUse on up to 2 devices\n\nBasic Memory and Context\n\nStandard Deep Search\n\n### Lite\n\nLKR 699 /30 Days\n\nNon-recurring, Valid for 30 days\n\nFull access to DocFlex AI\n\nUp to 50 questions per day\n\nUse on up to 5 devices\n\nExtended Memory and Context\n\nEnhanced Deep Search\n\nExclusive Clinical Podcast Library\n\nPrescription Analysis (Limited)\n\nMost Popular\n\n### Plus\n\nLKR 6499 /365 Days\n\nNon-recurring, Valid for 365 days\n\nFull access to DocFlex AI\n\nUnlimited questions\n\nUse on up to 10 devices\n\nAdvanced Memory and Context\n\nAdvanced Deep Search\n\nExclusive Clinical Podcast Library\n\nUnlimited Prescription Analysis\n\nContact Us\n\n## Get in touch - We’re here to help\n\nHave a question, suggestion, or need support? Our team is ready to assist you. Drop us a message, and we’ll respond as quickly as possible.\n\nName\n\nEmail\n\nContact Number\n\nSubject\n\nYour Message\nSend Message\n\nFAQ\n\n## Frequently Asked Questions\n\nHere are some of the most common questions we get, along with clear answers to help you out.\n\n## Is there a mobile app available?\n\nCurrently, there is no dedicated DocFlex AI mobile app. However, you can access the platform seamlessly through any mobile or desktop web browser. A fully optimized mobile application is under development and will be released soon. For quicker access in the meantime, you can install DocFlex AI as a Web App on your device.\n\n## Who can use this platform?\n\nDocFlex AI is built for all healthcare professionals, including Doctors, Pharmacists, Nurses, Medical Students, and other clinical staff. Pharmacists can upload prescription images, check drug interactions, verify dosage guidelines, and explore NMRA-registered medicines using the Med-Wallet feature. Students can also use DocFlex AI for learning, revision, and exam preparation.\n\n## Can I cancel my plan after purchase?\n\nNo. Plans are offered as non-recurring, one-time purchases; therefore, cancellations are not applicable once activated.\n\n## How accurate is the platform?\n\nDocFlex AI is designed for high medical accuracy. All answers are generated using trusted medical references such as the BNF, BNFC, and the British Pharmacopoeia. Each response includes transparent reference previews, allowing you to verify information instantly and ensure clinical reliability.\n\n## As a beginner, how do I know how to use this platform?\n\nNo worries. Once you log in to the system, you will find a User Manual tab in the sidebar. Please refer to it for guidance.\n\n## What if the answer I need is not available?\n\nIf certain information is not available in our database, DocFlex AI automatically uses the built-in Deep Web Search feature. This tool fetches up-to-date, evidence-based data from reputable medical websites, helping you find accurate and reliable answers quickly.\n\n## How can users help improve the platform?\n\nYour feedback directly contributes to improving DocFlex AI. You can submit suggestions, feature requests, comments, or issues through the Feedback tab. Every submission helps us enhance accuracy, performance, and overall user experience.",
+  "raw_llm_output": "### Analysis of SEO Structure and Messaging Clarity\nThe webpage has a clear and concise title, \"DocFlex AI | Home\", which effectively communicates the brand and purpose of the page. The metadata description provides a brief overview of the platform's features and benefits, which can improve search engine rankings and click-through rates. However, the description could be more concise and focused on the primary value proposition.\n\nThe headings structure is well-organized, with a clear hierarchy of H1, H2, and H3 tags. The H1 tag is used to introduce the main topic, \"Transform Healthcare with AI\", while the H2 and H3 tags are used to break down the content into smaller sections. This structure can improve the page's readability and accessibility.\n\n### Analysis of CTA Usage and Content Depth\nThe webpage has an excessive number of CTAs (13), which can create user decision paralysis and degrade the overall conversion rate. According to the AGENCY_HEURISTICS_TO_ENFORCE, more than 8 CTAs can have a negative impact on user experience. It is recommended to reduce the number of CTAs and focus on the most important actions.\n\nThe content is comprehensive and provides a detailed overview of the platform's features, benefits, and pricing plans. The word count is 708, which is a good length for a webpage. However, some sections, such as the FAQ, could be condensed or reorganized to improve readability.\n\n### Analysis of Obvious UX or Structural Concerns\nThe webpage has a clear and simple layout, with a prominent call-to-action (CTA) at the top. However, the excessive number of CTAs and the lack of white space can make the page feel cluttered and overwhelming.\n\nThe pricing plans section is well-organized, with clear and concise information about each plan. However, the plans could be summarized in a table or comparison chart to make it easier for users to compare and choose a plan.\n\nThe FAQ section is comprehensive, but some questions and answers could be reorganized or condensed to improve readability.\n\n### Conclusion\nThe webpage has a clear and concise title, metadata description, and headings structure. However, the excessive number of CTAs and the lack of white space can create user decision paralysis and degrade the overall conversion rate. The content is comprehensive, but some sections could be condensed or reorganized to improve readability.\n\n---REC_SPLIT---\n```json\n[\n  {\n    \"priority\": 1,\n    \"category\": \"UX\",\n    \"issue\": \"Excessive CTAs\",\n    \"actionable_recommendation\": \"Reduce the number of CTAs to 5-8 and focus on the most important actions\",\n    \"metric_reference\": \"cta_count\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"SEO\",\n    \"issue\": \"Metadata description could be more concise\",\n    \"actionable_recommendation\": \"Rewrite the metadata description to focus on the primary value proposition and keep it under 160 characters\",\n    \"metric_reference\": \"metadata.description\"\n  },\n  {\n    \"priority\": 3,\n    \"category\": \"Content\",\n    \"issue\": \"Some sections could be condensed or reorganized\",\n    \"actionable_recommendation\": \"Condense or reorganize sections such as the FAQ to improve readability and reduce clutter\",\n    \"metric_reference\": \"word_count\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"Conversion\",\n    \"issue\": \"Pricing plans could be summarized in a table or comparison chart\",\n    \"actionable_recommendation\": \"Create a table or comparison chart to summarize the pricing plans and make it easier for users to compare and choose a plan\",\n    \"metric_reference\": \"links.internal\"\n  },\n  {\n    \"priority\": 1,\n    \"category\": \"UX\",\n    \"issue\": \"Lack of white space can make the page feel cluttered\",\n    \"actionable_recommendation\": \"Add more white space to the page to improve readability and reduce clutter\",\n    \"metric_reference\": \"headings.h2\"\n  }\n]\n```",
+  "scraped_metrics": {
+    "word_count": 708,
+    "headings": {
+      "h1": 1,
+      "h2": 14,
+      "h3": 5
+    },
+    "links": {
+      "internal": 6,
+      "external": 5
+    },
+    "cta_count": 13,
+    "images": {
+      "total": 2,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "DocFlex AI | Home",
+      "description": "DocFlex AI is an AI-powered healthcare platform. Get medical insights, prescription support, drug interaction checks, and clinical decision support for doctors, pharmacists, nurses, and medical students."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "UX",
+      "issue": "Excessive CTAs",
+      "actionable_recommendation": "Reduce the number of CTAs to 5-8 and focus on the most important actions",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 2,
+      "category": "SEO",
+      "issue": "Metadata description could be more concise",
+      "actionable_recommendation": "Rewrite the metadata description to focus on the primary value proposition and keep it under 160 characters",
+      "metric_reference": "metadata.description"
+    },
+    {
+      "priority": 3,
+      "category": "Content",
+      "issue": "Some sections could be condensed or reorganized",
+      "actionable_recommendation": "Condense or reorganize sections such as the FAQ to improve readability and reduce clutter",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 2,
+      "category": "Conversion",
+      "issue": "Pricing plans could be summarized in a table or comparison chart",
+      "actionable_recommendation": "Create a table or comparison chart to summarize the pricing plans and make it easier for users to compare and choose a plan",
+      "metric_reference": "links.internal"
+    },
+    {
+      "priority": 1,
+      "category": "UX",
+      "issue": "Lack of white space can make the page feel cluttered",
+      "actionable_recommendation": "Add more white space to the page to improve readability and reduce clutter",
+      "metric_reference": "headings.h2"
+    }
+  ]
+}

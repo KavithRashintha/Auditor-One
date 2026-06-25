@@ -1,0 +1,73 @@
+{
+  "trace_id": "a5192d07-b21d-4188-b3c5-ce23906733ae",
+  "timestamp": "2026-06-24T17:03:24.402213+00:00",
+  "target_url": "https://www.luxuryx.lk/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 11,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"Checking your browser before accessing. Just a moment...\",\n    \"description\": null\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.\n- AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n- AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers.\n\n### PAGE CONTENT (MARKDOWN)\n# Checking your browser before accessing\n\nPlease wait for up to 5 seconds...",
+  "raw_llm_output": "## SEO Structure\nThe page's title tag is \"Checking your browser before accessing. Just a moment...\", which may not accurately represent the content of the page. The meta description is absent, which is a critical issue as it directly reduces click-through rate from organic search results. The heading hierarchy is simple, with only one H1 heading. There are no internal or external links on the page, which means there is no link equity being built.\n\n## Messaging Clarity\nThe page copy does not clearly communicate the value proposition or target audience. The content is extremely thin, with only 11 words, and does not provide any meaningful information to the user. The purpose of the page is unclear, and the user is left waiting without any context.\n\n## CTA Usage\nThere are no CTAs on the page, which means there is no clear conversion mechanism. This is a critical issue, as it prevents the user from taking any action on the page. At minimum, one primary CTA button is required to guide the user towards a specific action.\n\n## Content Depth\nThe word count is extremely low, with only 11 words, which is well below the recommended minimum of 300 words. There are no images on the page, which means there is no visual content to support the text. The informational density is very low, as the page does not provide any meaningful information to the user.\n\n## UX Concerns\nThe page structure is very basic, with only a single heading and a short paragraph of text. The user is left waiting for up to 5 seconds without any context or feedback, which can lead to a poor user experience. The lack of content and CTAs on the page means that the user has no clear direction or action to take.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Missing meta description\", \"actionable_recommendation\": \"Add a descriptive meta description to the page\", \"metric_reference\": \"metadata.description\"},\n  {\"priority\": 2, \"category\": \"Content\", \"issue\": \"Thin content\", \"actionable_recommendation\": \"Add more content to the page to reach a minimum of 300 words\", \"metric_reference\": \"word_count\"},\n  {\"priority\": 3, \"category\": \"CTA\", \"issue\": \"No CTAs detected\", \"actionable_recommendation\": \"Add a primary CTA button to the page\", \"metric_reference\": \"cta_count\"},\n  {\"priority\": 4, \"category\": \"SEO\", \"issue\": \"No external links present\", \"actionable_recommendation\": \"Add outbound links to authoritative sources\", \"metric_reference\": \"links.external\"},\n  {\"priority\": 5, \"category\": \"UX\", \"issue\": \"Poor user experience\", \"actionable_recommendation\": \"Add feedback or context to the page to improve the user experience\", \"metric_reference\": \"word_count\"}\n]",
+  "scraped_metrics": {
+    "word_count": 11,
+    "headings": {
+      "h1": 1,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "Checking your browser before accessing. Just a moment...",
+      "description": null
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.",
+    "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.",
+    "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Missing meta description",
+      "actionable_recommendation": "Add a descriptive meta description to the page",
+      "metric_reference": "metadata.description"
+    },
+    {
+      "priority": 2,
+      "category": "Content",
+      "issue": "Thin content",
+      "actionable_recommendation": "Add more content to the page to reach a minimum of 300 words",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 3,
+      "category": "CTA",
+      "issue": "No CTAs detected",
+      "actionable_recommendation": "Add a primary CTA button to the page",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 4,
+      "category": "SEO",
+      "issue": "No external links present",
+      "actionable_recommendation": "Add outbound links to authoritative sources",
+      "metric_reference": "links.external"
+    },
+    {
+      "priority": 5,
+      "category": "UX",
+      "issue": "Poor user experience",
+      "actionable_recommendation": "Add feedback or context to the page to improve the user experience",
+      "metric_reference": "word_count"
+    }
+  ]
+}

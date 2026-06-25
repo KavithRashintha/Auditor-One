@@ -13,7 +13,7 @@ __pycache__/
 *$py.class
 
 # Logs
-logs/
+# logs/
 
 # Node
 node_modules/

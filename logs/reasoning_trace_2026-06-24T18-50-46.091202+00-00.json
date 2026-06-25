@@ -1,0 +1,73 @@
+{
+  "trace_id": "32988adf-f967-4114-b1e0-62798bafc3b5",
+  "timestamp": "2026-06-24T18:50:46.091202+00:00",
+  "target_url": "https://www.netflix.com/lk/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag (title_length: ideal 30-60 chars), meta description (description_length: ideal 70-160 chars), H1/H2 count, heading hierarchy, and link equity based on the scraped metrics. Flag if title or description length is outside the ideal range.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- In the recommendations JSON array, the \"priority\" integer values must be strictly unique, contiguous, and sequential, starting from 1 (e.g. 1 for the highest priority, 2 for the second highest, 3, etc.). Never assign the same priority value to multiple items.\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 429,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 3,\n    \"h3\": 12\n  },\n  \"links\": {\n    \"internal\": 5,\n    \"external\": 12\n  },\n  \"cta_count\": 20,\n  \"images\": {\n    \"total\": 1,\n    \"missing_alt\": 1,\n    \"missing_alt_percentage\": 100.0\n  },\n  \"metadata\": {\n    \"title\": \"Netflix Sri Lanka - Watch TV Shows Online, Watch Movies Online\",\n    \"description\": \"Watch Netflix movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more.\",\n    \"title_length\": 62,\n    \"description_length\": 120\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Over 50% of images lack alt text. This violates WCAG 2.1 accessibility standards and fails Google Image indexation.\n- AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate.\n\n### PAGE CONTENT (MARKDOWN)\n![](https://assets.nflxext.com/ffe/siteui/vlv3/81b52f88-dc76-488d-a939-0cf13a260a6e/web/LK-en-20260622-TRIFECTA-perspective_d2612b10-2d05-4c8e-a54b-beae86c4ef1e_large.jpg)\n\n# Unlimited movies, TV shows, and more\n\nStarts at USD 2.99. Cancel anytime.\n\n### Ready to watch? Enter your email to create or restart your membership.\n\nEmail address\nGet Started\n\n## Trending Now\n\nSwapped\n1 1\n\nTeach You a Lesson\n2 2\n\nSex/Life\n3 3\n\nKara\n4 4\n\nDhurandhar The Revenge (Raw & Undekha)\n5 5\n\nMoney Heist\n6 6\n\n29\n7 7\n\nStranger Things\n8 8\n\nYoung Sheldon\n9 9\n\nDhurandhar\n10 10\n\n## More Reasons to Join\n\n### Enjoy on your TV\n\nWatch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.\n\n### Download your shows to watch offline\n\nSave your favorites easily and always have something to watch.\n\n### Watch everywhere\n\nStream unlimited movies and TV shows on your phone, tablet, laptop, and TV.\n\n### Create profiles for kids\n\nSend kids on adventures with their favorite characters in a space made just for them — free with your membership.\n\n## Frequently Asked Questions\n\n### What is Netflix?\n\nNetflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!\n\n### How much does Netflix cost?\n\nWatch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from USD 2.99 to USD 9.99/month.\n\n### Where can I watch?\n\nWatch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. You can also download your favorite shows with the iOS or Android app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.\n\n### How do I cancel?\n\nNetflix is flexible. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.\n\n### What can I watch on Netflix?\n\nNetflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.\n\n### Is Netflix good for kids?\n\nThe Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space. Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.\n\n### Ready to watch? Enter your email to create or restart your membership.\n\nEmail address\nGet Started",
+  "raw_llm_output": "## SEO Structure\nThe title tag has a length of 62 characters, which is within the ideal range of 30-60 characters but is at the upper limit. The meta description has a length of 120 characters, which is within the ideal range of 70-160 characters. The page has 1 H1 heading, 3 H2 headings, and 12 H3 headings, which indicates a clear heading hierarchy. However, the large number of H3 headings may indicate that some of these could be H2 headings to improve the structure. The page has 5 internal links and 12 external links, which could be optimized for better link equity.\n\n## Messaging Clarity\nThe page copy clearly communicates the value proposition of Netflix, including its extensive library of content, flexible pricing plans, and ability to watch on various devices. The target audience appears to be individuals looking for a streaming service, and the page effectively conveys the benefits of using Netflix. However, some sections, such as the \"More Reasons to Join\" section, could be more concise and directly related to the main value proposition.\n\n## CTA Usage\nThe page has 20 CTAs, which is excessive and may create user decision paralysis. This violates the agency rule of having more than 8 CTAs. The CTAs are placed throughout the page, but their frequency and prominence may overwhelm the user. It is recommended to reduce the number of CTAs and make them more prominent and targeted to specific user actions.\n\n## Content Depth\nThe page has a word count of 429, which is relatively low for a page with this much content. The page has only 1 image, and it is missing alt text, which violates the agency rule of having over 50% of images lack alt text. The informational density of the page is high, with many sections and subsections providing detailed information about Netflix. However, the lack of images and other media may make the page appear dry and unengaging.\n\n## UX Concerns\nThe page structure is clear, but the excessive number of CTAs and the lack of images may create a poor user experience. The page could benefit from more visual elements, such as images or videos, to break up the text and make the content more engaging. Additionally, the page could be optimized for better accessibility, including adding alt text to the image and improving the heading hierarchy.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"Accessibility\", \"issue\": \"Missing alt text for images\", \"actionable_recommendation\": \"Add alt text to the image on the page\", \"metric_reference\": \"images.missing_alt_percentage = 100.0\"},\n  {\"priority\": 2, \"category\": \"CTA Optimization\", \"issue\": \"Excessive CTAs\", \"actionable_recommendation\": \"Reduce the number of CTAs to 8 or less\", \"metric_reference\": \"cta_count = 20\"},\n  {\"priority\": 3, \"category\": \"Content Enhancement\", \"issue\": \"Low word count and lack of images\", \"actionable_recommendation\": \"Add more images and increase the word count to improve engagement\", \"metric_reference\": \"word_count = 429, images.total = 1\"},\n  {\"priority\": 4, \"category\": \"SEO\", \"issue\": \"Heading hierarchy\", \"actionable_recommendation\": \"Optimize the heading hierarchy to improve structure\", \"metric_reference\": \"headings.h1 = 1, headings.h2 = 3, headings.h3 = 12\"},\n  {\"priority\": 5, \"category\": \"User Experience\", \"issue\": \"Poor user experience due to excessive CTAs and lack of images\", \"actionable_recommendation\": \"Improve the user experience by reducing CTAs and adding more visual elements\", \"metric_reference\": \"cta_count = 20, images.total = 1\"}\n]",
+  "scraped_metrics": {
+    "word_count": 429,
+    "headings": {
+      "h1": 1,
+      "h2": 3,
+      "h3": 12
+    },
+    "links": {
+      "internal": 5,
+      "external": 12
+    },
+    "cta_count": 20,
+    "images": {
+      "total": 1,
+      "missing_alt": 1,
+      "missing_alt_percentage": 100.0
+    },
+    "metadata": {
+      "title": "Netflix Sri Lanka - Watch TV Shows Online, Watch Movies Online",
+      "description": "Watch Netflix movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more.",
+      "title_length": 62,
+      "description_length": 120
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Over 50% of images lack alt text. This violates WCAG 2.1 accessibility standards and fails Google Image indexation.",
+    "AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "Accessibility",
+      "issue": "Missing alt text for images",
+      "actionable_recommendation": "Add alt text to the image on the page",
+      "metric_reference": "images.missing_alt_percentage = 100.0"
+    },
+    {
+      "priority": 2,
+      "category": "CTA Optimization",
+      "issue": "Excessive CTAs",
+      "actionable_recommendation": "Reduce the number of CTAs to 8 or less",
+      "metric_reference": "cta_count = 20"
+    },
+    {
+      "priority": 3,
+      "category": "Content Enhancement",
+      "issue": "Low word count and lack of images",
+      "actionable_recommendation": "Add more images and increase the word count to improve engagement",
+      "metric_reference": "word_count = 429, images.total = 1"
+    },
+    {
+      "priority": 4,
+      "category": "SEO",
+      "issue": "Heading hierarchy",
+      "actionable_recommendation": "Optimize the heading hierarchy to improve structure",
+      "metric_reference": "headings.h1 = 1, headings.h2 = 3, headings.h3 = 12"
+    },
+    {
+      "priority": 5,
+      "category": "User Experience",
+      "issue": "Poor user experience due to excessive CTAs and lack of images",
+      "actionable_recommendation": "Improve the user experience by reducing CTAs and adding more visual elements",
+      "metric_reference": "cta_count = 20, images.total = 1"
+    }
+  ]
+}

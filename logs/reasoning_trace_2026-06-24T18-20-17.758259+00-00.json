@@ -1,0 +1,71 @@
+{
+  "trace_id": "68c51ba4-4204-4756-ab8f-4876ac2cf4dc",
+  "timestamp": "2026-06-24T18:20:17.758259+00:00",
+  "target_url": "https://syscolabs.lk/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- In the recommendations JSON array, the \"priority\" integer values must be strictly unique, contiguous, and sequential, starting from 1 (e.g. 1 for the highest priority, 2 for the second highest, 3, etc.). Never assign the same priority value to multiple items.\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 41,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 1,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 33,\n    \"external\": 2\n  },\n  \"cta_count\": 6,\n  \"images\": {\n    \"total\": 10,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"Sysco LABS Sri Lanka\",\n    \"description\": null\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n\n### PAGE CONTENT (MARKDOWN)\n![Preloader](/assets/preloader-AtTX_tTI.gif?1-0.6064757162107466)\n\n## Reach Out\n\n# Curious? We're All Ears\n\nGeneral Inquiries\n\nslinfo@sysco.com\n\nTelephone\n\n+94 (011) 2024500\n\nProcurement Inquiries\n\nSLProcurement@Sysco.com\n\nAddress\n\n55A, Srimath Anagarika Dharmapala Mawatha,\n\nColombo 0030, Sri Lanka\n\n© 2025 Sysco LABS. All Rights Reserved",
+  "raw_llm_output": "## SEO Structure\nThe page's title tag is \"Sysco LABS Sri Lanka\", which is present but could be more descriptive to improve search engine ranking. The meta description is absent, which is a critical issue as it directly affects click-through rates from organic search results. The heading hierarchy is simple with one H1 and one H2, which is a good practice. However, the link equity is skewed towards internal links with 33 internal links and only 2 external links, which might not be ideal for a page with such low word count.\n\n## Messaging Clarity\nThe page copy does not clearly communicate a value proposition, as it primarily serves as a contact page with email addresses, telephone numbers, and an address. The target audience is not explicitly stated, but based on the content, it appears to be individuals or businesses looking to get in touch with Sysco LABS in Sri Lanka.\n\n## CTA Usage\nThe page has 6 CTAs, but given the context of the page, it seems more like a contact information page rather than a conversion-driven page. The CTAs are likely links to email addresses or other contact methods, which might not be the most effective use of CTAs. Button placement is not explicitly mentioned, but considering the markdown content, it seems like the focus is on providing contact information rather than driving conversions.\n\n## Content Depth\nThe word count of the page is 41, which is extremely low and classified as thin content. This can harm the page's organic ranking potential. The page has 10 images, all of which have alt text, which is a positive aspect. However, the informational density is very low due to the lack of substantial content.\n\n## UX Concerns\nThe page structure seems simple and easy to navigate, with a clear separation of different types of contact information. However, the lack of substantial content and the absence of a meta description are significant concerns. The page also seems to be more of a contact page rather than a fully fleshed-out webpage, which might affect user experience and search engine ranking.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Absent meta description\", \"actionable_recommendation\": \"Add a descriptive meta description to improve click-through rates\", \"metric_reference\": \"metadata.description\"},\n  {\"priority\": 2, \"category\": \"Content\", \"issue\": \"Thin content\", \"actionable_recommendation\": \"Increase the word count to at least 300 words to improve organic ranking potential\", \"metric_reference\": \"word_count\"},\n  {\"priority\": 3, \"category\": \"SEO\", \"issue\": \"Low informational density\", \"actionable_recommendation\": \"Add more substantial and relevant content to the page to improve informational density\", \"metric_reference\": \"word_count\"},\n  {\"priority\": 4, \"category\": \"UX\", \"issue\": \"Lack of engaging content\", \"actionable_recommendation\": \"Consider adding more engaging elements such as videos, testimonials, or interactive features to enhance user experience\", \"metric_reference\": \"images.total\"},\n  {\"priority\": 5, \"category\": \"CTA\", \"issue\": \"Ineffective CTA usage\", \"actionable_recommendation\": \"Reconsider the use of CTAs on the page and focus on driving conversions or providing clear next steps for users\", \"metric_reference\": \"cta_count\"}\n]",
+  "scraped_metrics": {
+    "word_count": 41,
+    "headings": {
+      "h1": 1,
+      "h2": 1,
+      "h3": 0
+    },
+    "links": {
+      "internal": 33,
+      "external": 2
+    },
+    "cta_count": 6,
+    "images": {
+      "total": 10,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "Sysco LABS Sri Lanka",
+      "description": null
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Absent meta description",
+      "actionable_recommendation": "Add a descriptive meta description to improve click-through rates",
+      "metric_reference": "metadata.description"
+    },
+    {
+      "priority": 2,
+      "category": "Content",
+      "issue": "Thin content",
+      "actionable_recommendation": "Increase the word count to at least 300 words to improve organic ranking potential",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 3,
+      "category": "SEO",
+      "issue": "Low informational density",
+      "actionable_recommendation": "Add more substantial and relevant content to the page to improve informational density",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 4,
+      "category": "UX",
+      "issue": "Lack of engaging content",
+      "actionable_recommendation": "Consider adding more engaging elements such as videos, testimonials, or interactive features to enhance user experience",
+      "metric_reference": "images.total"
+    },
+    {
+      "priority": 5,
+      "category": "CTA",
+      "issue": "Ineffective CTA usage",
+      "actionable_recommendation": "Reconsider the use of CTAs on the page and focus on driving conversions or providing clear next steps for users",
+      "metric_reference": "cta_count"
+    }
+  ]
+}

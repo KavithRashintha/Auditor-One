@@ -1,0 +1,57 @@
+{
+  "trace_id": "6f6132cd-d383-4ebf-84ad-44364a0bea4a",
+  "timestamp": "2026-06-24T17:07:17.309305+00:00",
+  "target_url": "https://zenixz.com/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 484,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 12,\n    \"h3\": 6\n  },\n  \"links\": {\n    \"internal\": 120,\n    \"external\": 1\n  },\n  \"cta_count\": 27,\n  \"images\": {\n    \"total\": 6,\n    \"missing_alt\": 2,\n    \"missing_alt_percentage\": 33.33333333333333\n  },\n  \"metadata\": {\n    \"title\": \"ZENIXZ\",\n    \"description\": null\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.\n- AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate.\n\n### PAGE CONTENT (MARKDOWN)\n[Skip to content](#MainContent) \nWelcome to ZENIXZ\n\n## Item added to your cart\n\n[View cart](/cart) Check out Continue shopping\n\n![](//zenixz.com/cdn/shop/files/1.1.png?v=1760383243&width=3840)\n\n## EVERY STYLE, EVERY MOMENT\n\nUniversal Premium Hoodies For Everyone\n\n[Shop all](/collections/all)\n\n![](//zenixz.com/cdn/shop/files/Gemini_Generated_Image_7b2awy7b2awy7b2a.png?v=1760415168&width=3840)\n\n## EVERY STYLE, EVERY MOMENT\n\n[Shop all](/collections/all)\n\n## WHY ZENIXZ ?\n\nAt ZENIXZ, we believe that comfort and style should go hand in hand. Our premium collection of men’s, women’s, and unisex hoodies is crafted for those who live boldly and dress effortlessly. Designed with high-quality fabrics, modern fits, and timeless designs, every ZENIXZ hoodie brings warmth, confidence, and individuality to your everyday moments, from cozy nights in to adventures outdoors.\n\nZENIXZ, Where Every Style Meets Every Moment.\n\n## Collections By ZENIXZ\n\n![Product mockup](//zenixz.com/cdn/shop/files/unisex-heavy-blend-hoodie-navy-front-6963e15cbce49.png?v=1768153578&width=1500)\n\n### [Men Collection](/collections/men-collection)\n\n### [Men Collection](/collections/men-collection)\n\n![Product mockup](//zenixz.com/cdn/shop/files/unisex-heavy-blend-hoodie-indigo-blue-front-698757747f98b.png?v=1770477461&width=1500)\n\n### [Women Collection](/collections/women-collection)\n\n### [Women Collection](/collections/women-collection)\n\n![Product mockup](//zenixz.com/cdn/shop/files/unisex-heavy-blend-zip-hoodie-navy-front-68eb382e74a9a.png?v=1760245816&width=1500)\n\n### [Unisex Collection](/collections/unisex)\n\n### [Unisex Collection](/collections/unisex)\n\nChoosing a selection results in a full page refresh.\n\nOpens in a new window.",
+  "raw_llm_output": "## SEO Structure\nThe page's title tag is \"ZENIXZ\", which is brief but lacks descriptive keywords that could improve search engine rankings. The meta description is absent, which is a critical issue as it directly affects click-through rates from organic search results. The heading hierarchy is mostly flat, with 1 H1, 12 H2, and 6 H3 headings, which may not be ideal for search engine understanding of the content structure. The link equity is high, with 120 internal links, but this may also lead to a diluted link equity across the site.\n\n## Messaging Clarity\nThe page copy attempts to communicate the value proposition of ZENIXZ, emphasizing comfort, style, and high-quality fabrics. However, the messaging could be more concise and prominent, as it is scattered throughout the page. The target audience appears to be individuals seeking premium hoodies, but this could be more explicitly stated. The repetitive use of the phrase \"EVERY STYLE, EVERY MOMENT\" may become redundant and dilute the overall message.\n\n## CTA Usage\nThe page has an excessive number of CTAs (27), which may lead to user decision paralysis and degrade the overall conversion rate. The CTAs are scattered throughout the page, with some being repetitive (e.g., multiple \"Shop all\" links). A more strategic approach to CTA placement and reduction in number could improve the user experience and conversion rates.\n\n## Content Depth\nThe page has a moderate word count (484 words), which is sufficient for conveying the brand's message and product information. The use of images is adequate, with 6 images, but 2 of them are missing alt text, which is a usability and accessibility issue. The informational density is moderate, with a mix of product descriptions, brand messaging, and calls-to-action.\n\n## UX Concerns\nThe page structure is mostly clear, but the repetitive use of headings and CTAs may cause visual noise and user confusion. The absence of a meta description may also affect the page's appearance in search engine results, potentially reducing click-through rates. Additionally, the missing alt text for some images may affect users with visual impairments or those using screen readers.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Missing meta description\", \"actionable_recommendation\": \"Add a descriptive meta description to improve click-through rates\", \"metric_reference\": \"metadata.description\"},\n  {\"priority\": 2, \"category\": \"CTA Optimization\", \"issue\": \"Excessive CTAs\", \"actionable_recommendation\": \"Reduce the number of CTAs to 8 or fewer and strategically place them\", \"metric_reference\": \"cta_count\"},\n  {\"priority\": 3, \"category\": \"Accessibility\", \"issue\": \"Missing alt text for images\", \"actionable_recommendation\": \"Add alt text to all images to improve accessibility\", \"metric_reference\": \"images.missing_alt\"}\n]",
+  "scraped_metrics": {
+    "word_count": 484,
+    "headings": {
+      "h1": 1,
+      "h2": 12,
+      "h3": 6
+    },
+    "links": {
+      "internal": 120,
+      "external": 1
+    },
+    "cta_count": 27,
+    "images": {
+      "total": 6,
+      "missing_alt": 2,
+      "missing_alt_percentage": 33.33333333333333
+    },
+    "metadata": {
+      "title": "ZENIXZ",
+      "description": null
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.",
+    "AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Missing meta description",
+      "actionable_recommendation": "Add a descriptive meta description to improve click-through rates",
+      "metric_reference": "metadata.description"
+    },
+    {
+      "priority": 2,
+      "category": "CTA Optimization",
+      "issue": "Excessive CTAs",
+      "actionable_recommendation": "Reduce the number of CTAs to 8 or fewer and strategically place them",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 3,
+      "category": "Accessibility",
+      "issue": "Missing alt text for images",
+      "actionable_recommendation": "Add alt text to all images to improve accessibility",
+      "metric_reference": "images.missing_alt"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "trace_id": "d4a1bc09-909e-4d56-91df-8a4090b6ae01",
+  "timestamp": "2026-06-24T17:06:59.250858+00:00",
+  "target_url": "https://wso2.com/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 755,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 9,\n    \"h3\": 9\n  },\n  \"links\": {\n    \"internal\": 154,\n    \"external\": 12\n  },\n  \"cta_count\": 12,\n  \"images\": {\n    \"total\": 23,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"WSO2 | Open by Design. Intelligent by Nature.\",\n    \"description\": \"Open, unified platform powering enterprise digital experiences globally.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate.\n\n### PAGE CONTENT (MARKDOWN)\n[Skip to main content](#main-content) \n# Open by Design. Intelligent by Nature.\n\nExperience the power of a unified agentic nervous system. Deploy anywhere with zero lock-in, where AI is architectural, not an afterthought.\n\n[Learn About Our Platform](/agentic-enterprise) [All Products](#all-products)\n\n## We power half of the world's digital experiences\n\n50k+\n\nenterprise users\n\n200+\n\nBFSI customers\n\n200+\n\ngovernment customers\n\n90+\n\ncountries\n\n60 trillion\n\ntransactions\n\n2.5 billion\n\nidentities\n\n[Company Overview](/about)\n\n## We don’t build digital experiences — we just make them possible\n\n[![Thumbnail](https://wso2.cachefly.net/wso2/sites/all/image_resources/case-studies-healthcare.webp) \n![Logo](https://wso2.cachefly.net/wso2/sites/all/image_resources/wso2con/NMDP-logo.webp) \n\n##### NMDP Builds Global Transplant Network with WSO2\n\nNMDP uses WSO2 to scale a secure global transplant network, connecting donors, clinicians, and partners worldwide.\n\nView Story](https://wso2.com/customers/nmdp-builds-global-transplant-network)\n\n[![Thumbnail](https://wso2.cachefly.net/wso2/sites/all/image_resources/case-studies-telco-v2.webp) \n![Logo](https://wso2.cachefly.net/wso2/sites/all/image_resources/Eand_Logo_EN.webp) \n\n##### e& Telco Ecosystem Powered by WSO2\n\nWSO2 powers e&’s telco ecosystem, scaling services for 5M+ users and enabling 6,000+ partners to securely connect and grow.\n\nView Story](/customers/wso2-fuels-eand-telco-ecosystem)\n\n[![Thumbnail](https://wso2.cachefly.net/wso2/sites/all/image_resources/case-studies-banking.webp) \n![Logo](https://wso2.cachefly.net/wso2/sites/all/image_resources/RBIH-Logo-2.webp) \n\n##### RBI Lending Transformation with WSO2\n\nWSO2 modernizes RBI’s lending ecosystem, enabling secure, scalable integration and faster access to financial services for partners.\n\nView Story](https://wso2.com/customers/revolutionizing-reserve-bank-of-indias-lending-ecosystem-with-wso2)\n\n[All Customer Stories](/customers)\n\n## Scale your agentic enterprise with our open source and SaaS platforms\n\n![Agent Platform](https://wso2.cachefly.net/wso2/sites/all/image_resources/logos/agent-platform-black-h.webp) \nThe open platform to secure, observe, and govern AI agents and GenAI apps. Go from pilot to production with built-in agent identity, observability, eval, AI guardrails, and lifecycle management — for every agent and any runtime.\n\n[Learn More about Agent Platform](/agent-platform)\n\n![API Platform](https://wso2.cachefly.net/wso2/sites/all/image_resources/logos/api-platform-black-h.webp) \nThe open, universal platform for managing every API and AI service at scale. Govern your APIs, AI, and MCP from a single control plane across any cloud, any gateway. Zero lock-in.\n\n[Learn More about API Platform](/api-platform)\n\n![Integration Platform](https://wso2.cachefly.net/wso2/sites/all/image_resources/logos/integration-platform-black-h.webp) \nThe 100% open source, AI-native integration platform built to connect AI agents, APIs, data, and events. Deploy anywhere, avoid vendor lock-in, and integrate faster with lower TCO.\n\n[Learn More about Integration Platform](/integration-platform)\n\n![Identity Platform](https://wso2.cachefly.net/wso2/sites/all/image_resources/logos/identity-platform-black-h.webp) \nThe most extensible API-first platform to orchestrate identity for humans and AI agents. Secure your organization with the flexibility of open source software delivered your way.\n\n[Learn More about Identity Platform](/identity-platform)\n\n![Engineering Platform](https://wso2.cachefly.net/wso2/sites/all/image_resources/logos/engineering-platform-black-h.webp) \nThe open platform to build your agentic enterprise. Deliver modular golden paths, automate CI/CD, enable deep observability, and accelerate developer and agent delivery.\n\n[Learn More about Engineering Platform](/engineering-platform)\n\n## WSO2 named a Leader in API management software\n\n![Forrester Wave report 2024](https://wso2.cachefly.net/wso2/sites/all/2024/images/api-forrester-wave-graph.webp)\n\n![Forrester logo](https://wso2.cachefly.net/wso2/sites/all/image_resources/forrester-white-logo.webp) \n\n#### WSO2 named a Leader In The Forrester Wave ™ : API Management Software, Q3 2024\n\n[All Analyst Reports](https://wso2.com/library) [Download Report](https://wso2.com/resources/analyst-reports/the-forrester-wave-api-management-software)\n\n[![Thumbnail](https://wso2.cachefly.net/wso2/sites/all/image_resources/blog2.jpg) \n##### Why AI Agents Need Their Own Identity\n\nWhy identity is vital for MCP Hosts: securing non-deterministic AI agents.\n\nRead Blog](https://wso2.com/library/blogs/why-ai-agents-need-their-own-identity-lessons-from-owasps-mcp-security-guide)\n\n[![Thumbnail](https://wso2.cachefly.net/wso2/sites/all/image_resources/blog1.jpg) \n##### The Role of Integration in the Agentic Enterprise\n\nHow integration forms the connective tissue of human-AI collaboration and enables the next evolution of enterprise intelligence.\n\nRead Blog](https://wso2.com/library/blogs/the-role-of-integration-in-the-agentic-enterprise)\n\n[![Thumbnail](https://wso2.cachefly.net/wso2/sites/all/image_resources/KuppingerCole_back_grounds-04.webp) \n##### Introducing Agent-Flavored Markdown (AFM)\n\nAFM: Making AI agents portable and easy to build with YAML and Markdown.\n\nRead Blog](https://wso2.com/library/blogs/introducing-agent-flavored-markdown)\n\n[All Resources](/library/)\n\n## Let’s build something together\n\n[Contact Us](/contact)",
+  "raw_llm_output": "## SEO Structure\nThe page has a well-structured heading hierarchy with 1 H1, 9 H2, and 9 H3 headings. The title tag \"WSO2 | Open by Design. Intelligent by Nature.\" and meta description \"Open, unified platform powering enterprise digital experiences globally.\" are both present and descriptive. The link equity is distributed across 154 internal links and 12 external links, which may help with navigation and credibility. However, the high number of internal links (154) might be considered excessive and could potentially lead to link equity dilution.\n\n## Messaging Clarity\nThe page copy clearly communicates the value proposition of WSO2 as an open and unified platform for powering enterprise digital experiences. The target audience appears to be enterprise-level decision-makers, and the language used is technical and industry-specific. The messaging is consistent throughout the page, emphasizing the benefits of WSO2's platform, such as scalability, security, and flexibility.\n\n## CTA Usage\nThe page has 12 CTAs, which exceeds the recommended limit of 8 CTAs. This might lead to user decision paralysis and degrade the overall conversion rate. The CTAs are placed throughout the page, including in the hero section, customer stories, and platform descriptions. While the CTAs are prominent and actionable, their high frequency might overwhelm the user.\n\n## Content Depth\nThe page has a word count of 755, which is a reasonable length for a homepage. The content is rich in information, with descriptions of WSO2's platforms, customer stories, and industry recognition. The page includes 23 images, all of which have alt text, which is good for accessibility. The informational density is high, with a mix of technical and marketing content.\n\n## UX Concerns\nThe page structure is generally well-organized, but the high number of CTAs and internal links might cause user fatigue. The page could benefit from a more streamlined navigation and a clearer hierarchy of content. Additionally, some sections, such as the customer stories and platform descriptions, might be too long and could be broken up for better readability.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Excessive internal links\", \"actionable_recommendation\": \"Reduce the number of internal links to less than 100\", \"metric_reference\": \"links.internal\"},\n  {\"priority\": 2, \"category\": \"CTA Optimization\", \"issue\": \"Too many CTAs\", \"actionable_recommendation\": \"Reduce the number of CTAs to 8 or less\", \"metric_reference\": \"cta_count\"},\n  {\"priority\": 3, \"category\": \"Content Optimization\", \"issue\": \"High informational density\", \"actionable_recommendation\": \"Break up long sections of content into smaller, more digestible chunks\", \"metric_reference\": \"word_count\"},\n  {\"priority\": 4, \"category\": \"UX\", \"issue\": \"Complex navigation\", \"actionable_recommendation\": \"Simplify the navigation and reduce the number of options\", \"metric_reference\": \"links.internal\"},\n  {\"priority\": 5, \"category\": \"Accessibility\", \"issue\": \"No major issues found\", \"actionable_recommendation\": \"Continue to ensure all images have alt text\", \"metric_reference\": \"images.missing_alt\"}\n]",
+  "scraped_metrics": {
+    "word_count": 755,
+    "headings": {
+      "h1": 1,
+      "h2": 9,
+      "h3": 9
+    },
+    "links": {
+      "internal": 154,
+      "external": 12
+    },
+    "cta_count": 12,
+    "images": {
+      "total": 23,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "WSO2 | Open by Design. Intelligent by Nature.",
+      "description": "Open, unified platform powering enterprise digital experiences globally."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Excessive internal links",
+      "actionable_recommendation": "Reduce the number of internal links to less than 100",
+      "metric_reference": "links.internal"
+    },
+    {
+      "priority": 2,
+      "category": "CTA Optimization",
+      "issue": "Too many CTAs",
+      "actionable_recommendation": "Reduce the number of CTAs to 8 or less",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 3,
+      "category": "Content Optimization",
+      "issue": "High informational density",
+      "actionable_recommendation": "Break up long sections of content into smaller, more digestible chunks",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 4,
+      "category": "UX",
+      "issue": "Complex navigation",
+      "actionable_recommendation": "Simplify the navigation and reduce the number of options",
+      "metric_reference": "links.internal"
+    },
+    {
+      "priority": 5,
+      "category": "Accessibility",
+      "issue": "No major issues found",
+      "actionable_recommendation": "Continue to ensure all images have alt text",
+      "metric_reference": "images.missing_alt"
+    }
+  ]
+}
