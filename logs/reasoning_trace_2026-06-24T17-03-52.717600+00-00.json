@@ -1,0 +1,73 @@
+{
+  "trace_id": "abd4dc7e-3727-41aa-9d20-7660f44e6f43",
+  "timestamp": "2026-06-24T17:03:52.717600+00:00",
+  "target_url": "https://www.luxuryx.lk/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 11,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"Checking your browser before accessing. Just a moment...\",\n    \"description\": null\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.\n- AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n- AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers.\n\n### PAGE CONTENT (MARKDOWN)\n# Checking your browser before accessing\n\nPlease wait for up to 5 seconds...",
+  "raw_llm_output": "## SEO Structure\nThe page's title tag is \"Checking your browser before accessing. Just a moment...\", which may not accurately represent the content of the page. The meta description is absent, which is a critical issue as it directly reduces click-through rate from organic search results. The heading hierarchy is simple, with only one H1 heading. There are no internal or external links, which could be detrimental to the page's link equity.\n\n## Messaging Clarity\nThe page copy does not clearly communicate the value proposition or target audience. The content is extremely thin and only serves as a placeholder or a temporary message, rather than providing any meaningful information to the user.\n\n## CTA Usage\nThere are no CTAs detected on the page, which means there is no clear conversion mechanism. This is a significant issue, as it prevents the user from taking any desired action. At minimum, one primary CTA button is required to guide the user through the desired workflow.\n\n## Content Depth\nThe word count is extremely low, at only 11 words. There are no images on the page, which could help to break up the content and provide additional context. The lack of content and images results in very low informational density, which can harm the page's organic ranking potential.\n\n## UX Concerns\nThe page structure is very basic and does not provide any meaningful content or functionality to the user. The lack of a clear message, CTAs, and content can lead to a poor user experience and high bounce rates. The page appears to be a temporary or placeholder page, rather than a fully functional webpage.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Meta description is absent\", \"actionable_recommendation\": \"Add a descriptive meta description to the page\", \"metric_reference\": \"metadata.description\"},\n  {\"priority\": 2, \"category\": \"Content\", \"issue\": \"Thin content detected\", \"actionable_recommendation\": \"Add more meaningful content to the page to increase word count and informational density\", \"metric_reference\": \"word_count\"},\n  {\"priority\": 3, \"category\": \"CTA\", \"issue\": \"No CTAs detected\", \"actionable_recommendation\": \"Add a primary CTA button to guide the user through the desired workflow\", \"metric_reference\": \"cta_count\"},\n  {\"priority\": 4, \"category\": \"SEO\", \"issue\": \"No external links present\", \"actionable_recommendation\": \"Add outbound links to authoritative sources to serve as a baseline trust signal for search engine crawlers\", \"metric_reference\": \"links.external\"},\n  {\"priority\": 5, \"category\": \"SEO\", \"issue\": \"Title tag may not accurately represent the content of the page\", \"actionable_recommendation\": \"Update the title tag to accurately reflect the content of the page\", \"metric_reference\": \"metadata.title\"}\n]",
+  "scraped_metrics": {
+    "word_count": 11,
+    "headings": {
+      "h1": 1,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "Checking your browser before accessing. Just a moment...",
+      "description": null
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.",
+    "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.",
+    "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Meta description is absent",
+      "actionable_recommendation": "Add a descriptive meta description to the page",
+      "metric_reference": "metadata.description"
+    },
+    {
+      "priority": 2,
+      "category": "Content",
+      "issue": "Thin content detected",
+      "actionable_recommendation": "Add more meaningful content to the page to increase word count and informational density",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 3,
+      "category": "CTA",
+      "issue": "No CTAs detected",
+      "actionable_recommendation": "Add a primary CTA button to guide the user through the desired workflow",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 4,
+      "category": "SEO",
+      "issue": "No external links present",
+      "actionable_recommendation": "Add outbound links to authoritative sources to serve as a baseline trust signal for search engine crawlers",
+      "metric_reference": "links.external"
+    },
+    {
+      "priority": 5,
+      "category": "SEO",
+      "issue": "Title tag may not accurately represent the content of the page",
+      "actionable_recommendation": "Update the title tag to accurately reflect the content of the page",
+      "metric_reference": "metadata.title"
+    }
+  ]
+}

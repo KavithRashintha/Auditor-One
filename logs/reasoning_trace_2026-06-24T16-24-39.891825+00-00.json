@@ -1,0 +1,66 @@
+{
+  "trace_id": "7410776d-2eb8-4166-9e08-a4afc1a2ba04",
+  "timestamp": "2026-06-24T16:24:39.891825+00:00",
+  "target_url": "https://www.docflex.net/home",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 0,\n  \"headings\": {\n    \"h1\": 0,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals\",\n    \"description\": \"DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.\n- AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n- AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers.\n\n### PAGE CONTENT (MARKDOWN)\n",
+  "raw_llm_output": "## SEO Structure\nThe page has a well-structured title tag, \"DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals\", and a meta description, \"DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance.\" However, the absence of H1 tags is a critical SEO failure, as it fails to wrap the primary hero value proposition. The link equity is also affected by the lack of internal and external links, with zero links detected.\n\n## Messaging Clarity\nThe page copy attempts to communicate the value proposition of DocFlex AI, but the absence of any content (word count is 0) makes it difficult to assess the clarity of the messaging. The meta description provides some insight into the product's purpose, but it is unclear if the page effectively communicates this to the target audience.\n\n## CTA Usage\nThe page has no CTAs detected, which means there is no clear conversion mechanism. This is a critical issue, as it fails to provide a clear call-to-action for the user to engage with the product or service.\n\n## Content Depth\nThe page has a word count of 0, indicating that there is no content present. This is a significant issue, as search engines classify thin content as low-value copy, harming organic ranking potential. There are also no images present, which could potentially enhance the user experience and provide additional context.\n\n## UX Concerns\nThe page's structure and usability are severely impacted by the lack of content, headings, and CTAs. The absence of any content makes it difficult for users to understand the product or service, and the lack of CTAs means that users have no clear next steps. The page's design and layout are also unclear, as there is no content to assess.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Missing H1 tag\", \"actionable_recommendation\": \"Add an H1 tag to wrap the primary hero value proposition\", \"metric_reference\": \"headings.h1 = 0\"},\n  {\"priority\": 2, \"category\": \"Content\", \"issue\": \"Thin content\", \"actionable_recommendation\": \"Add high-quality, engaging content to the page, targeting a minimum of 300 words\", \"metric_reference\": \"word_count = 0\"},\n  {\"priority\": 3, \"category\": \"CTA\", \"issue\": \"No CTAs detected\", \"actionable_recommendation\": \"Add a primary CTA button to the page, clearly defining the conversion mechanism\", \"metric_reference\": \"cta_count = 0\"},\n  {\"priority\": 4, \"category\": \"Link Equity\", \"issue\": \"No external links present\", \"actionable_recommendation\": \"Add outbound links to authoritative sources to serve as a baseline trust signal for search engine crawlers\", \"metric_reference\": \"links.external = 0\"}\n]",
+  "scraped_metrics": {
+    "word_count": 0,
+    "headings": {
+      "h1": 0,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals",
+      "description": "DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.",
+    "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.",
+    "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Missing H1 tag",
+      "actionable_recommendation": "Add an H1 tag to wrap the primary hero value proposition",
+      "metric_reference": "headings.h1 = 0"
+    },
+    {
+      "priority": 2,
+      "category": "Content",
+      "issue": "Thin content",
+      "actionable_recommendation": "Add high-quality, engaging content to the page, targeting a minimum of 300 words",
+      "metric_reference": "word_count = 0"
+    },
+    {
+      "priority": 3,
+      "category": "CTA",
+      "issue": "No CTAs detected",
+      "actionable_recommendation": "Add a primary CTA button to the page, clearly defining the conversion mechanism",
+      "metric_reference": "cta_count = 0"
+    },
+    {
+      "priority": 4,
+      "category": "Link Equity",
+      "issue": "No external links present",
+      "actionable_recommendation": "Add outbound links to authoritative sources to serve as a baseline trust signal for search engine crawlers",
+      "metric_reference": "links.external = 0"
+    }
+  ]
+}

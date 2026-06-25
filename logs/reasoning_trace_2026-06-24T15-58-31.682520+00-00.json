@@ -1,0 +1,76 @@
+{
+  "trace_id": "7a7227ea-21e5-4483-9358-b430befcc558",
+  "timestamp": "2026-06-24T15:58:31.682520+00:00",
+  "target_url": "https://www.docflex.net/home",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA. \nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nINSTRUCTIONS & STRICT MANDATES:\n1. NO HEDGING OR GENERICS: You are forbidden from making vague observations like \"the content is comprehensive\" or \"consider adding more whitespace.\" Every single observation MUST cite a specific integer, heading text, or link count directly from the metrics JSON.\n2. IMMUTABLE SECTION HEADERS: Your markdown analysis MUST contain exactly these five headers in this exact order. You are forbidden from renaming, merging, reordering, or prefixing them with \"Analysis of\":\n   ## SEO Structure\n   ## Messaging Clarity\n   ## CTA Usage\n   ## Content Depth\n   ## UX & Structural Concerns\n3. STREAM SPLIT: When you have finished streaming your analysis, output EXACTLY the following delimiter on a new line:\n   ---REC_SPLIT---\n4. RECOMMENDATIONS JSON: Immediately after the delimiter, output a valid JSON array of 3-5 recommendations.\n   - UNIQUE PRIORITY SEQUENCE: Priority values MUST be a unique integer sequence starting at 1 with no duplicates (e.g., 1, 2, 3, 4). Priority 1 is the most critical fix.\n   - CATEGORY RESTRICTION: The `category` field MUST be exactly one of: \"SEO\", \"Copywriting\", \"UX/UI\", \"Conversion\". No other values are permitted.\n   - CAUSAL METRIC REFERENCES: `metric_reference` must be the direct, logical, causal data point for the issue. A copy length issue must reference `metadata.description_length`. If an issue is purely structural with no single metric driver, bind to `word_count` or `headings.h1` as the closest proxy.\n   \n   Example JSON Structure:\n   [\n     {\n       \"priority\": 1,\n       \"category\": \"SEO\",\n       \"issue\": \"Specific issue based on metrics\",\n       \"actionable_recommendation\": \"What to do to fix it\",\n       \"metric_reference\": \"e.g. metadata.description_length or images.missing_alt\"\n     }\n   ]\n5. Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 0,\n  \"headings\": {\n    \"h1\": 0,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals\",\n    \"description\": \"DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance.\",\n    \"title_length\": 70,\n    \"description_length\": 130\n  }\n}\n```\n\n### INSTRUCTION NOTE\nCompare `metadata.description_length` against the 160-character ceiling. If it exceeds it, calculate the exact overflow integer and cite it in your analysis.\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY CRITICAL: A page with zero H1 tags destroys primary keyword targeting. Search engines cannot identify the page's core topic. The client must immediately wrap their primary hero value proposition in a single H1 tag.\n- AGENCY RULE: Page title exceeds the 60-character search engine display threshold. The title will be truncated in search results, hiding the brand name or primary keyword. It must be condensed.\n- AGENCY CRITICAL: Zero CTAs detected on this page. This page has no conversion mechanism whatsoever. At minimum one primary action CTA must be placed above the fold and one secondary CTA at the page conclusion.\n- AGENCY RULE: Thin content detected. At 300 words or fewer, Google classifies this page as low-value content, significantly depressing its organic ranking potential. The page requires a minimum of 600 words of substantive, keyword-relevant body copy.\n- AGENCY RULE: No outbound external links present. Linking to authoritative external sources is a documented trust signal for search engines and reinforces topical authority. At minimum 2–3 outbound links to credible references should be added.\n\n### PAGE CONTENT (MARKDOWN)\n",
+  "raw_llm_output": "## SEO Structure\nThe page's metadata description length is 130 characters, which is below the 160-character ceiling. However, the page title length is 70 characters, exceeding the 60-character search engine display threshold. This means the title will be truncated in search results. The lack of H1 tags is a critical issue, as it destroys primary keyword targeting. With 0 H1 tags, search engines cannot identify the page's core topic.\n\n## Messaging Clarity\nThe page content is not provided, but based on the metadata description, the messaging seems to be clear and concise. However, without the actual content, it's difficult to assess the overall messaging clarity.\n\n## CTA Usage\nThere are 0 CTAs detected on this page, which is a critical issue. This page has no conversion mechanism whatsoever. At minimum, one primary action CTA must be placed above the fold and one secondary CTA at the page conclusion.\n\n## Content Depth\nThe page has a word count of 0, which is a critical issue. With less than 300 words, Google classifies this page as low-value content, significantly depressing its organic ranking potential. The page requires a minimum of 600 words of substantive, keyword-relevant body copy.\n\n## UX & Structural Concerns\nThe page has 0 internal and external links, which is a concern. Linking to authoritative external sources is a documented trust signal for search engines and reinforces topical authority. At minimum, 2–3 outbound links to credible references should be added. The image count is 0, which is not a concern in this case.\n\n---REC_SPLIT---\n[\n  {\n    \"priority\": 1,\n    \"category\": \"SEO\",\n    \"issue\": \"Lack of H1 tags destroys primary keyword targeting\",\n    \"actionable_recommendation\": \"Add a single H1 tag wrapping the primary hero value proposition\",\n    \"metric_reference\": \"headings.h1\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"SEO\",\n    \"issue\": \"Page title exceeds the 60-character search engine display threshold\",\n    \"actionable_recommendation\": \"Condense the page title to 60 characters or fewer\",\n    \"metric_reference\": \"metadata.title_length\"\n  },\n  {\n    \"priority\": 3,\n    \"category\": \"Conversion\",\n    \"issue\": \"Zero CTAs detected on this page\",\n    \"actionable_recommendation\": \"Add at least one primary action CTA above the fold and one secondary CTA at the page conclusion\",\n    \"metric_reference\": \"cta_count\"\n  },\n  {\n    \"priority\": 4,\n    \"category\": \"Copywriting\",\n    \"issue\": \"Thin content detected with a word count of 0\",\n    \"actionable_recommendation\": \"Add a minimum of 600 words of substantive, keyword-relevant body copy\",\n    \"metric_reference\": \"word_count\"\n  },\n  {\n    \"priority\": 5,\n    \"category\": \"SEO\",\n    \"issue\": \"No outbound external links present\",\n    \"actionable_recommendation\": \"Add at least 2–3 outbound links to credible references\",\n    \"metric_reference\": \"links.external\"\n  }\n]",
+  "scraped_metrics": {
+    "word_count": 0,
+    "headings": {
+      "h1": 0,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals",
+      "description": "DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance.",
+      "title_length": 70,
+      "description_length": 130
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY CRITICAL: A page with zero H1 tags destroys primary keyword targeting. Search engines cannot identify the page's core topic. The client must immediately wrap their primary hero value proposition in a single H1 tag.",
+    "AGENCY RULE: Page title exceeds the 60-character search engine display threshold. The title will be truncated in search results, hiding the brand name or primary keyword. It must be condensed.",
+    "AGENCY CRITICAL: Zero CTAs detected on this page. This page has no conversion mechanism whatsoever. At minimum one primary action CTA must be placed above the fold and one secondary CTA at the page conclusion.",
+    "AGENCY RULE: Thin content detected. At 300 words or fewer, Google classifies this page as low-value content, significantly depressing its organic ranking potential. The page requires a minimum of 600 words of substantive, keyword-relevant body copy.",
+    "AGENCY RULE: No outbound external links present. Linking to authoritative external sources is a documented trust signal for search engines and reinforces topical authority. At minimum 2–3 outbound links to credible references should be added."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Lack of H1 tags destroys primary keyword targeting",
+      "actionable_recommendation": "Add a single H1 tag wrapping the primary hero value proposition",
+      "metric_reference": "headings.h1"
+    },
+    {
+      "priority": 2,
+      "category": "SEO",
+      "issue": "Page title exceeds the 60-character search engine display threshold",
+      "actionable_recommendation": "Condense the page title to 60 characters or fewer",
+      "metric_reference": "metadata.title_length"
+    },
+    {
+      "priority": 3,
+      "category": "Conversion",
+      "issue": "Zero CTAs detected on this page",
+      "actionable_recommendation": "Add at least one primary action CTA above the fold and one secondary CTA at the page conclusion",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 4,
+      "category": "Copywriting",
+      "issue": "Thin content detected with a word count of 0",
+      "actionable_recommendation": "Add a minimum of 600 words of substantive, keyword-relevant body copy",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 5,
+      "category": "SEO",
+      "issue": "No outbound external links present",
+      "actionable_recommendation": "Add at least 2–3 outbound links to credible references",
+      "metric_reference": "links.external"
+    }
+  ]
+}

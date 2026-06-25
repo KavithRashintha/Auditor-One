@@ -1,0 +1,71 @@
+{
+  "trace_id": "edc8b2af-ee15-408b-bb28-d9da25e95e67",
+  "timestamp": "2026-06-24T18:18:39.814934+00:00",
+  "target_url": "https://www.netflix.com/lk/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- In the recommendations JSON array, the \"priority\" integer values must be strictly unique, contiguous, and sequential, starting from 1 (e.g. 1 for the highest priority, 2 for the second highest, 3, etc.). Never assign the same priority value to multiple items.\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 429,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 3,\n    \"h3\": 12\n  },\n  \"links\": {\n    \"internal\": 5,\n    \"external\": 12\n  },\n  \"cta_count\": 20,\n  \"images\": {\n    \"total\": 1,\n    \"missing_alt\": 1,\n    \"missing_alt_percentage\": 100.0\n  },\n  \"metadata\": {\n    \"title\": \"Netflix Sri Lanka - Watch TV Shows Online, Watch Movies Online\",\n    \"description\": \"Watch Netflix movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Over 50% of images lack alt text. This violates WCAG 2.1 accessibility standards and fails Google Image indexation.\n- AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate.\n\n### PAGE CONTENT (MARKDOWN)\n![](https://assets.nflxext.com/ffe/siteui/vlv3/81b52f88-dc76-488d-a939-0cf13a260a6e/web/LK-en-20260622-TRIFECTA-perspective_d2612b10-2d05-4c8e-a54b-beae86c4ef1e_large.jpg)\n\n# Unlimited movies, TV shows, and more\n\nStarts at USD 2.99. Cancel anytime.\n\n### Ready to watch? Enter your email to create or restart your membership.\n\nEmail address\nGet Started\n\n## Trending Now\n\nSwapped\n1 1\n\nTeach You a Lesson\n2 2\n\nSex/Life\n3 3\n\nKara\n4 4\n\nDhurandhar The Revenge (Raw & Undekha)\n5 5\n\nMoney Heist\n6 6\n\n29\n7 7\n\nStranger Things\n8 8\n\nYoung Sheldon\n9 9\n\nDhurandhar\n10 10\n\n## More Reasons to Join\n\n### Enjoy on your TV\n\nWatch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.\n\n### Download your shows to watch offline\n\nSave your favorites easily and always have something to watch.\n\n### Watch everywhere\n\nStream unlimited movies and TV shows on your phone, tablet, laptop, and TV.\n\n### Create profiles for kids\n\nSend kids on adventures with their favorite characters in a space made just for them — free with your membership.\n\n## Frequently Asked Questions\n\n### What is Netflix?\n\nNetflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!\n\n### How much does Netflix cost?\n\nWatch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from USD 2.99 to USD 9.99/month.\n\n### Where can I watch?\n\nWatch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. You can also download your favorite shows with the iOS or Android app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.\n\n### How do I cancel?\n\nNetflix is flexible. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.\n\n### What can I watch on Netflix?\n\nNetflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.\n\n### Is Netflix good for kids?\n\nThe Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space. Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.\n\n### Ready to watch? Enter your email to create or restart your membership.\n\nEmail address\nGet Started",
+  "raw_llm_output": "## SEO Structure\nThe page has a clear title tag, \"Netflix Sri Lanka - Watch TV Shows Online, Watch Movies Online\", which accurately describes the content of the page. The meta description, \"Watch Netflix movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more\", is also descriptive and concise. The page has a single H1 heading, \"Unlimited movies, TV shows, and more\", and three H2 headings, which provides a clear structure to the content. However, the excessive use of H3 headings (12 in total) may make the page appear cluttered. The link equity of the page is moderate, with 5 internal links and 12 external links.\n\n## Messaging Clarity\nThe page clearly communicates the value proposition of Netflix, highlighting the variety of content available, the ability to watch on multiple devices, and the flexibility of the subscription plans. The target audience appears to be individuals looking for a streaming service, and the page provides relevant information to help them make an informed decision. However, the page could benefit from a clearer call-to-action (CTA) and a more prominent display of the benefits of subscribing to Netflix.\n\n## CTA Usage\nThe page has an excessive number of CTAs (20 in total), which may create user decision paralysis and degrade the overall conversion rate. The CTAs are scattered throughout the page, and it is not clear which one is the primary call-to-action. To improve the conversion rate, it is recommended to reduce the number of CTAs and make the primary CTA more prominent.\n\n## Content Depth\nThe page has a moderate word count of 429 words, which provides a good amount of information about Netflix and its services. However, the page could benefit from more images to break up the text and make the content more engaging. Unfortunately, the single image on the page is missing alt text, which violates WCAG 2.1 accessibility standards and fails Google Image indexation. The informational density of the page is moderate, with a good balance of text and whitespace.\n\n## UX Concerns\nThe page has several structural and usability issues. The excessive number of CTAs and H3 headings makes the page appear cluttered and difficult to navigate. The lack of alt text for the image on the page is a significant accessibility issue. Additionally, the page could benefit from a more prominent display of the benefits of subscribing to Netflix and a clearer call-to-action.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"Accessibility\", \"issue\": \"Missing alt text for images\", \"actionable_recommendation\": \"Add alt text to all images on the page\", \"metric_reference\": \"images.missing_alt_percentage\"},\n  {\"priority\": 2, \"category\": \"CTA Optimization\", \"issue\": \"Excessive CTAs\", \"actionable_recommendation\": \"Reduce the number of CTAs to 5 or less\", \"metric_reference\": \"cta_count\"},\n  {\"priority\": 3, \"category\": \"Content Optimization\", \"issue\": \"Low image count\", \"actionable_recommendation\": \"Add more images to the page to break up the text\", \"metric_reference\": \"images.total\"},\n  {\"priority\": 4, \"category\": \"SEO\", \"issue\": \"Excessive H3 headings\", \"actionable_recommendation\": \"Reduce the number of H3 headings to 5 or less\", \"metric_reference\": \"headings.h3\"},\n  {\"priority\": 5, \"category\": \"UX\", \"issue\": \"Cluttered page layout\", \"actionable_recommendation\": \"Improve the page layout to make it easier to navigate\", \"metric_reference\": \"None\"}\n]",
+  "scraped_metrics": {
+    "word_count": 429,
+    "headings": {
+      "h1": 1,
+      "h2": 3,
+      "h3": 12
+    },
+    "links": {
+      "internal": 5,
+      "external": 12
+    },
+    "cta_count": 20,
+    "images": {
+      "total": 1,
+      "missing_alt": 1,
+      "missing_alt_percentage": 100.0
+    },
+    "metadata": {
+      "title": "Netflix Sri Lanka - Watch TV Shows Online, Watch Movies Online",
+      "description": "Watch Netflix movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Over 50% of images lack alt text. This violates WCAG 2.1 accessibility standards and fails Google Image indexation.",
+    "AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "Accessibility",
+      "issue": "Missing alt text for images",
+      "actionable_recommendation": "Add alt text to all images on the page",
+      "metric_reference": "images.missing_alt_percentage"
+    },
+    {
+      "priority": 2,
+      "category": "CTA Optimization",
+      "issue": "Excessive CTAs",
+      "actionable_recommendation": "Reduce the number of CTAs to 5 or less",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 3,
+      "category": "Content Optimization",
+      "issue": "Low image count",
+      "actionable_recommendation": "Add more images to the page to break up the text",
+      "metric_reference": "images.total"
+    },
+    {
+      "priority": 4,
+      "category": "SEO",
+      "issue": "Excessive H3 headings",
+      "actionable_recommendation": "Reduce the number of H3 headings to 5 or less",
+      "metric_reference": "headings.h3"
+    },
+    {
+      "priority": 5,
+      "category": "UX",
+      "issue": "Cluttered page layout",
+      "actionable_recommendation": "Improve the page layout to make it easier to navigate",
+      "metric_reference": "None"
+    }
+  ]
+}

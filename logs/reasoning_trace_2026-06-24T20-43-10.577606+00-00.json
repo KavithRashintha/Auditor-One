@@ -1,0 +1,76 @@
+{
+  "trace_id": "ea5ced08-3a96-491c-ba54-2dd6eacadcd8",
+  "timestamp": "2026-06-24T20:43:10.577606+00:00",
+  "target_url": "https://www.pizzahut.lk/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this exact order. Each must be its own standalone ## heading:\n\n## SEO Structure\n[Analyze title_length and description_length against standard display limits (60 chars for title, 160 chars for description). Analyze H1/H2 count, heading hierarchy, and link distributions based strictly on the scraped metrics.]\n\n## Messaging Clarity\n[Analyze whether the page copy clearly communicates the core value proposition and explicitly addresses the target audience.]\n\n## CTA Usage\n[Analyze cta_count, button placement copy, and potential user decision paralysis.]\n\n## Content Depth\n[Analyze word_count, total images, missing alt text coverage percentage, and overall informational density.]\n\n## UX Concerns\n[Identify structural bottlenecks, layout clutter, or poor information architecture.]\n\nMANDATORY RULES:\n- You MUST produce all 5 sections above, exactly as written. Do NOT combine or merge any sections.\n- Ground every insight in the provided factual numbers. Cite exact integers from the JSON. Do NOT hedge or write generic advice.\n- If AGENCY_HEURISTICS_TO_ENFORCE rules are provided, prioritize addressing them in your copy and do not mention such as according to AGENCY_HEURISTICS_TO_ENFORCE.\n- After completing ALL 5 Markdown sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n\n- Immediately following that delimiter line, output ONLY a valid JSON array (with NO markdown code fences or backticks) containing between 3 and 5 recommendation objects.\n  Each object must match this exact schema:\n  {\n    \"priority\": <UNIQUE integer between 1 and 5. Priority 1 is the most critical. Do NOT assign duplicate priority numbers>,\n    \"category\": \"<Must be strictly one of: SEO, Copywriting, UX, Conversion>\",\n    \"issue\": \"<Concise summary of the flaw citing the exact metric number>\",\n    \"actionable_recommendation\": \"<Clear, technical instruction on how to fix it>\",\n    \"metric_reference\": \"<Must be the EXACT causal key path from the JSON, e.g., 'metadata.description_length' or 'cta_count'. If an issue is purely structural layout copy, bind it strictly to 'word_count' or 'headings.h1'>\"\n  }\n\n- Do NOT output any text, markdown, or commentary after the closing bracket of the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 0,\n  \"headings\": {\n    \"h1\": 0,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"Pizza Hut Sri Lanka\",\n    \"description\": null,\n    \"title_length\": 19,\n    \"description_length\": null\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.\n- AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.\n- AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n- AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers.\n\n### PAGE CONTENT (MARKDOWN)\n",
+  "raw_llm_output": "## SEO Structure\nThe page has a title length of 19 characters, which is within the standard display limit of 60 characters. However, the description length is null, indicating a missing meta description. The absence of an H1 tag is a critical SEO failure, as it fails to wrap the primary hero value proposition. The page also lacks internal and external links, with 0 internal links and 0 external links.\n\n## Messaging Clarity\nThe page copy is empty, with a word count of 0, making it impossible to communicate the core value proposition or address the target audience. The lack of content makes it difficult to determine the page's purpose or message.\n\n## CTA Usage\nThe page has a cta_count of 0, indicating no clear conversion mechanism. This means that users have no clear call-to-action to follow, potentially leading to user decision paralysis. The absence of a primary CTA button is a critical issue that needs to be addressed.\n\n## Content Depth\nThe page has a word count of 0, which is well below the recommended minimum of 300 words. This indicates thin content, which can harm organic ranking potential. The page also has 0 images, with 0 missing alt text, but this is not a concern given the lack of images. The overall informational density of the page is zero, making it a low-value page for search engines.\n\n## UX Concerns\nThe page's empty content and lack of structure make it difficult to identify specific UX concerns. However, the absence of a clear hierarchy, headings, and links can lead to a poor user experience. The page's layout is likely to be cluttered due to the lack of content, making it essential to address the content and structure issues first.\n\n---REC_SPLIT---\n[\n  {\n    \"priority\": 1,\n    \"category\": \"SEO\",\n    \"issue\": \"Zero H1 tags detected\",\n    \"actionable_recommendation\": \"Add an H1 tag to wrap the primary hero value proposition\",\n    \"metric_reference\": \"headings.h1\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"SEO\",\n    \"issue\": \"Missing meta description\",\n    \"actionable_recommendation\": \"Add a meta description to the page\",\n    \"metric_reference\": \"metadata.description\"\n  },\n  {\n    \"priority\": 3,\n    \"category\": \"Conversion\",\n    \"issue\": \"No CTAs detected\",\n    \"actionable_recommendation\": \"Add a primary CTA button to the page\",\n    \"metric_reference\": \"cta_count\"\n  },\n  {\n    \"priority\": 4,\n    \"category\": \"Copywriting\",\n    \"issue\": \"Thin content detected (under 300 words)\",\n    \"actionable_recommendation\": \"Add high-quality content to the page to reach a minimum of 300 words\",\n    \"metric_reference\": \"word_count\"\n  },\n  {\n    \"priority\": 5,\n    \"category\": \"SEO\",\n    \"issue\": \"No external links present\",\n    \"actionable_recommendation\": \"Add outbound links to authoritative sources\",\n    \"metric_reference\": \"links.external\"\n  }\n]",
+  "scraped_metrics": {
+    "word_count": 0,
+    "headings": {
+      "h1": 0,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "Pizza Hut Sri Lanka",
+      "description": null,
+      "title_length": 19,
+      "description_length": null
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.",
+    "AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.",
+    "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.",
+    "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Zero H1 tags detected",
+      "actionable_recommendation": "Add an H1 tag to wrap the primary hero value proposition",
+      "metric_reference": "headings.h1"
+    },
+    {
+      "priority": 2,
+      "category": "SEO",
+      "issue": "Missing meta description",
+      "actionable_recommendation": "Add a meta description to the page",
+      "metric_reference": "metadata.description"
+    },
+    {
+      "priority": 3,
+      "category": "Conversion",
+      "issue": "No CTAs detected",
+      "actionable_recommendation": "Add a primary CTA button to the page",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 4,
+      "category": "Copywriting",
+      "issue": "Thin content detected (under 300 words)",
+      "actionable_recommendation": "Add high-quality content to the page to reach a minimum of 300 words",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 5,
+      "category": "SEO",
+      "issue": "No external links present",
+      "actionable_recommendation": "Add outbound links to authoritative sources",
+      "metric_reference": "links.external"
+    }
+  ]
+}

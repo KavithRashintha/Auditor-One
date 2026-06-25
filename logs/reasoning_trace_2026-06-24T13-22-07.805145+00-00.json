@@ -1,0 +1,73 @@
+{
+  "trace_id": "a6ed813a-e1cb-4a80-a1e9-09cf8ba7f587",
+  "timestamp": "2026-06-24T13:22:07.805145+00:00",
+  "target_url": "https://www.docflex.net/login",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA. \nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nINSTRUCTIONS:\n1. Stream your analysis progressively. Focus on:\n   - SEO structure & Messaging clarity\n   - CTA usage & Content depth\n   - Obvious UX or structural concerns\n2. You MUST ground every insight in the provided factual data. Do NOT hallucinate metrics.\n3. Write your analysis in clean Markdown format.\n4. When you have finished streaming your analysis, output EXACTLY the following delimiter on a new line:\n   ---REC_SPLIT---\n5. Immediately after the delimiter, output a valid JSON array of 3-5 recommendations.\n   Each recommendation must have this exact structure:\n   {\n     \"priority\": 1, // 1 to 3\n     \"category\": \"SEO\", // e.g. SEO, UX, Content, Conversion\n     \"issue\": \"Specific issue based on metrics\",\n     \"actionable_recommendation\": \"What to do to fix it\",\n     \"metric_reference\": \"e.g. headings.h1 or images.missing_alt\"\n   }\n6. Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 0,\n  \"headings\": {\n    \"h1\": 0,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals\",\n    \"description\": \"DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.\n- AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n- AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers.\n\n### PAGE CONTENT (MARKDOWN)\n",
+  "raw_llm_output": "### Analysis\n#### SEO Structure & Messaging Clarity\nThe provided page lacks a clear structure, with **zero H1 tags** detected, which is a critical SEO failure. The primary hero value proposition should be wrapped in an H1 tag to improve search engine ranking and readability. The metadata title and description are present, but the absence of headings (H1, H2, H3) hinders the page's semantic structure.\n\n#### CTA Usage & Content Depth\nThe page has **no CTAs detected**, which means there is no clear conversion mechanism. At a minimum, one primary CTA button is required to guide users towards a desired action. Furthermore, the page content is **extremely thin**, with a word count of 0, which is well below the recommended 300 words. This thin content can harm the page's organic ranking potential.\n\n#### Obvious UX or Structural Concerns\nThe lack of content, headings, and CTAs raises significant concerns about the user experience and structural integrity of the page. The absence of internal and external links also limits the page's credibility and trustworthiness.\n\n---\n### Recommendations\n```json\n[\n  {\n    \"priority\": 1,\n    \"category\": \"SEO\",\n    \"issue\": \"Missing H1 tag\",\n    \"actionable_recommendation\": \"Add an H1 tag to wrap the primary hero value proposition\",\n    \"metric_reference\": \"headings.h1\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"Conversion\",\n    \"issue\": \"No CTAs detected\",\n    \"actionable_recommendation\": \"Add a primary CTA button to guide users towards a desired action\",\n    \"metric_reference\": \"cta_count\"\n  },\n  {\n    \"priority\": 3,\n    \"category\": \"Content\",\n    \"issue\": \"Thin content\",\n    \"actionable_recommendation\": \"Expand the page content to at least 300 words, including relevant headings and subheadings\",\n    \"metric_reference\": \"word_count\"\n  },\n  {\n    \"priority\": 1,\n    \"category\": \"SEO\",\n    \"issue\": \"No external links present\",\n    \"actionable_recommendation\": \"Add outbound links to authoritative sources to serve as a baseline trust signal for search engine crawlers\",\n    \"metric_reference\": \"links.external\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"UX\",\n    \"issue\": \"Lack of semantic structure\",\n    \"actionable_recommendation\": \"Add headings (H2, H3) to improve the page's semantic structure and readability\",\n    \"metric_reference\": \"headings.h2, headings.h3\"\n  }\n]\n```",
+  "scraped_metrics": {
+    "word_count": 0,
+    "headings": {
+      "h1": 0,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals",
+      "description": "DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.",
+    "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.",
+    "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Missing H1 tag",
+      "actionable_recommendation": "Add an H1 tag to wrap the primary hero value proposition",
+      "metric_reference": "headings.h1"
+    },
+    {
+      "priority": 2,
+      "category": "Conversion",
+      "issue": "No CTAs detected",
+      "actionable_recommendation": "Add a primary CTA button to guide users towards a desired action",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 3,
+      "category": "Content",
+      "issue": "Thin content",
+      "actionable_recommendation": "Expand the page content to at least 300 words, including relevant headings and subheadings",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "No external links present",
+      "actionable_recommendation": "Add outbound links to authoritative sources to serve as a baseline trust signal for search engine crawlers",
+      "metric_reference": "links.external"
+    },
+    {
+      "priority": 2,
+      "category": "UX",
+      "issue": "Lack of semantic structure",
+      "actionable_recommendation": "Add headings (H2, H3) to improve the page's semantic structure and readability",
+      "metric_reference": "headings.h2, headings.h3"
+    }
+  ]
+}

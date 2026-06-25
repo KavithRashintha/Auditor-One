@@ -1,0 +1,66 @@
+{
+  "trace_id": "13f9cb2f-01eb-4cd6-ba32-509a4522a323",
+  "timestamp": "2026-06-24T17:01:44.380895+00:00",
+  "target_url": "https://www.docflex.net/home",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- The \"metric_reference\" value MUST be a string representing one of the exact field paths present in the SCRAPED METRICS JSON:\n  \"word_count\", \"headings.h1\", \"headings.h2\", \"headings.h3\", \"links.internal\", \"links.external\", \"cta_count\", \"images.total\", \"images.missing_alt\", \"images.missing_alt_percentage\", \"metadata.title\", \"metadata.description\".\n  Do NOT use \"None\", \"N/A\", null, or empty string. Always reference an actual metric from the JSON.\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 0,\n  \"headings\": {\n    \"h1\": 0,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals\",\n    \"description\": \"DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.\n- AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n- AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers.\n\n### PAGE CONTENT (MARKDOWN)\n",
+  "raw_llm_output": "## SEO Structure\nThe page's SEO structure is compromised due to the absence of H1 and H2 tags, as indicated by the `headings.h1` and `headings.h2` metrics being 0. This lack of heading hierarchy can negatively impact the page's search engine ranking. Furthermore, the `links.internal` and `links.external` metrics are also 0, suggesting that the page lacks both internal and external linking, which is crucial for link equity and trust signals. The `metadata.title` and `metadata.description` are present, but the overall SEO structure requires significant improvement.\n\n## Messaging Clarity\nGiven the `word_count` is 0, it's clear that the page lacks substantial content, making it challenging to assess the messaging clarity. However, the `metadata.description` provides some insight into the value proposition, mentioning \"AI-powered healthcare transformer\" and \"medical insights, prescription support, and patient care assistance.\" This suggests a clear, albeit brief, description of the service. Yet, without actual page content, it's difficult to evaluate how effectively the page communicates its value proposition and targets its audience.\n\n## CTA Usage\nThe `cta_count` metric is 0, indicating that the page does not have any call-to-action (CTA) buttons. This is a significant issue, as CTAs are essential for guiding users toward conversion actions. Without a clear CTA, the page lacks a direct mechanism to encourage user engagement or conversion, severely impacting its effectiveness.\n\n## Content Depth\nThe page's content depth is severely lacking, with a `word_count` of 0. This suggests that the page does not provide substantial information or value to users, which can harm its organic ranking potential. Additionally, the `images.total` metric is 0, indicating no images are present, which could otherwise contribute to the page's informational density and user engagement. The absence of content makes it impossible to assess the page's informational density or the presence of alt text for images.\n\n## UX Concerns\nThe page's structure and usability are significantly compromised due to the lack of content, headings, and CTAs. The absence of these elements can lead to a poor user experience, as users may find it difficult to understand the page's purpose or navigate through it. Furthermore, the lack of external links may raise trust concerns, as outbound links to authoritative sources are often seen as a baseline trust signal.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Missing H1 tag\", \"actionable_recommendation\": \"Add an H1 tag to wrap the primary hero value proposition\", \"metric_reference\": \"headings.h1\"},\n  {\"priority\": 2, \"category\": \"Content\", \"issue\": \"Thin content\", \"actionable_recommendation\": \"Increase the word count to at least 300 words to improve organic ranking potential\", \"metric_reference\": \"word_count\"},\n  {\"priority\": 3, \"category\": \"CTA\", \"issue\": \"No CTAs detected\", \"actionable_recommendation\": \"Add at least one primary CTA button to guide users toward conversion actions\", \"metric_reference\": \"cta_count\"},\n  {\"priority\": 4, \"category\": \"Linking\", \"issue\": \"No external links\", \"actionable_recommendation\": \"Add outbound links to authoritative sources to improve trust signals\", \"metric_reference\": \"links.external\"}\n]",
+  "scraped_metrics": {
+    "word_count": 0,
+    "headings": {
+      "h1": 0,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "DocFlex AI | AI-Powered Healthcare Assistant for Medical Professionals",
+      "description": "DocFlex is an AI-powered healthcare transformer that delivers medical insights, prescription support, and patient care assistance."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.",
+    "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.",
+    "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Missing H1 tag",
+      "actionable_recommendation": "Add an H1 tag to wrap the primary hero value proposition",
+      "metric_reference": "headings.h1"
+    },
+    {
+      "priority": 2,
+      "category": "Content",
+      "issue": "Thin content",
+      "actionable_recommendation": "Increase the word count to at least 300 words to improve organic ranking potential",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 3,
+      "category": "CTA",
+      "issue": "No CTAs detected",
+      "actionable_recommendation": "Add at least one primary CTA button to guide users toward conversion actions",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 4,
+      "category": "Linking",
+      "issue": "No external links",
+      "actionable_recommendation": "Add outbound links to authoritative sources to improve trust signals",
+      "metric_reference": "links.external"
+    }
+  ]
+}

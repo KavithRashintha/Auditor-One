@@ -1,0 +1,70 @@
+{
+  "trace_id": "904bd8ea-d0ef-4f37-9a4c-4f286ec803db",
+  "timestamp": "2026-06-24T17:04:41.533723+00:00",
+  "target_url": "https://www.docflex.net/home",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 708,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 14,\n    \"h3\": 5\n  },\n  \"links\": {\n    \"internal\": 6,\n    \"external\": 5\n  },\n  \"cta_count\": 13,\n  \"images\": {\n    \"total\": 2,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"DocFlex AI | Home\",\n    \"description\": \"DocFlex AI is an AI-powered healthcare platform. Get medical insights, prescription support, drug interaction checks, and clinical decision support for doctors, pharmacists, nurses, and medical students.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate.\n\n### PAGE CONTENT (MARKDOWN)\nNext-Gen Medical AI\n\n# Transform Healthcare with AI\n\nInstant answers from an AI trained in medical knowledge. No more endless flipping through books. ⚡ Quick insights • 🎯 Confident decisions care\n\nTry it now Watch demo\n\nH\n\nX\n\nY\n\nQ\nTrusted by 1K+ Healthcare Professionals\n\nAbout Us\n\n## Shaping the future of Medical Intelligence\n\nDocFlex AI is Sri Lanka’s first medical AI platform, designed to transform how healthcare professionals access essential drug information. Built and developed by Team DocFlex, it serves as a trusted, efficient, and intelligent medical assistant, empowering better decision-making in clinical practice.\n\n## Our Goal\n\nDocFlex AI aims to save healthcare professionals valuable time by streamlining access to essential medical information. Our goal is to enhance daily workflows through intelligent assistance, provide a smoother and more reliable user experience, and deliver accurate answers backed by trusted references such as the BNF, BNFC, BP, and etc for improved clarity.\n\n## Features and Accuracy\n\nDocFlex AI maintains a strong 98% accuracy rate, supported by continuous model training and improvements. Every response includes clear references for instant verification, ensuring reliability. User feedback is essential reporting incorrect details through the feedback section helps refine our system and preserve DocFlex AI as a trusted resource.\n\n## The Future of DocFlex AI\n\nWe are focused on making DocFlex AI more user-friendly while steadily expanding its features. Future plans include collaborating with healthcare institutions and professionals to enhance accuracy, reliability, and real-world performance. As the platform evolves, DocFlex AI will offer smarter, faster, and continually improving support for medical practice\n\nPricing Plans\n\n## Flexible options to fit your needs\n\nChoose from our affordable pricing plans designed to suit individuals, teams, and enterprises. Pay only for what you need with no hidden fees.\n\n### Free\n\nLKR 0\n\nNo hidden fees, Forever free\n\nLimited access to DocFlex AI\n\nUp to 5 questions per day\n\nUse on up to 2 devices\n\nBasic Memory and Context\n\nStandard Deep Search\n\n### Lite\n\nLKR 699 /30 Days\n\nNon-recurring, Valid for 30 days\n\nFull access to DocFlex AI\n\nUp to 50 questions per day\n\nUse on up to 5 devices\n\nExtended Memory and Context\n\nEnhanced Deep Search\n\nExclusive Clinical Podcast Library\n\nPrescription Analysis (Limited)\n\nMost Popular\n\n### Plus\n\nLKR 6499 /365 Days\n\nNon-recurring, Valid for 365 days\n\nFull access to DocFlex AI\n\nUnlimited questions\n\nUse on up to 10 devices\n\nAdvanced Memory and Context\n\nAdvanced Deep Search\n\nExclusive Clinical Podcast Library\n\nUnlimited Prescription Analysis\n\nContact Us\n\n## Get in touch - We’re here to help\n\nHave a question, suggestion, or need support? Our team is ready to assist you. Drop us a message, and we’ll respond as quickly as possible.\n\nName\n\nEmail\n\nContact Number\n\nSubject\n\nYour Message\nSend Message\n\nFAQ\n\n## Frequently Asked Questions\n\nHere are some of the most common questions we get, along with clear answers to help you out.\n\n## Is there a mobile app available?\n\nCurrently, there is no dedicated DocFlex AI mobile app. However, you can access the platform seamlessly through any mobile or desktop web browser. A fully optimized mobile application is under development and will be released soon. For quicker access in the meantime, you can install DocFlex AI as a Web App on your device.\n\n## Who can use this platform?\n\nDocFlex AI is built for all healthcare professionals, including Doctors, Pharmacists, Nurses, Medical Students, and other clinical staff. Pharmacists can upload prescription images, check drug interactions, verify dosage guidelines, and explore NMRA-registered medicines using the Med-Wallet feature. Students can also use DocFlex AI for learning, revision, and exam preparation.\n\n## Can I cancel my plan after purchase?\n\nNo. Plans are offered as non-recurring, one-time purchases; therefore, cancellations are not applicable once activated.\n\n## How accurate is the platform?\n\nDocFlex AI is designed for high medical accuracy. All answers are generated using trusted medical references such as the BNF, BNFC, and the British Pharmacopoeia. Each response includes transparent reference previews, allowing you to verify information instantly and ensure clinical reliability.\n\n## As a beginner, how do I know how to use this platform?\n\nNo worries. Once you log in to the system, you will find a User Manual tab in the sidebar. Please refer to it for guidance.\n\n## What if the answer I need is not available?\n\nIf certain information is not available in our database, DocFlex AI automatically uses the built-in Deep Web Search feature. This tool fetches up-to-date, evidence-based data from reputable medical websites, helping you find accurate and reliable answers quickly.\n\n## How can users help improve the platform?\n\nYour feedback directly contributes to improving DocFlex AI. You can submit suggestions, feature requests, comments, or issues through the Feedback tab. Every submission helps us enhance accuracy, performance, and overall user experience.",
+  "raw_llm_output": "## SEO Structure\nThe webpage has a well-structured heading hierarchy, with 1 H1, 14 H2, and 5 H3 headings. The title tag is \"DocFlex AI | Home\" and the meta description is \"DocFlex AI is an AI-powered healthcare platform. Get medical insights, prescription support, drug interaction checks, and clinical decision support for doctors, pharmacists, nurses, and medical students.\" The link equity is moderate, with 6 internal and 5 external links. However, the high number of H2 headings may indicate a need for better content organization.\n\n## Messaging Clarity\nThe page copy clearly communicates the value proposition of DocFlex AI, highlighting its features and benefits for healthcare professionals. The target audience is well-defined, including doctors, pharmacists, nurses, and medical students. The messaging is concise and easy to understand, with a clear call-to-action (CTA) to \"Try it now\" or \"Watch demo\". However, the excessive number of CTAs (13) may create user decision paralysis and degrade the overall conversion rate.\n\n## CTA Usage\nThe webpage has an excessive number of CTAs (13), which may overwhelm the user and reduce the conversion rate. The CTAs are placed throughout the page, but their prominence and visibility could be improved. To optimize CTA usage, it's recommended to reduce the number of CTAs to 3-5 and place them strategically, such as after key benefits or features.\n\n## Content Depth\nThe webpage has a moderate word count of 708 words, which provides a good amount of content for users to engage with. The page includes 2 images, both with alt text, which is good for accessibility. The informational density is high, with a lot of technical and medical information presented. However, the content could be broken up with more headings, subheadings, and bullet points to improve readability.\n\n## UX Concerns\nThe webpage has a complex structure, with many sections and subsections. While the content is well-organized, the excessive number of CTAs and the dense content may create a poor user experience. Additionally, the page could benefit from more white space, clear headings, and a more prominent call-to-action. The contact form and FAQ section are well-structured, but the page could benefit from a more intuitive navigation and a clear information architecture.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Excessive H2 headings\", \"actionable_recommendation\": \"Reorganize content to reduce H2 headings to 5-7\", \"metric_reference\": \"headings.h2\"},\n  {\"priority\": 2, \"category\": \"CTA Optimization\", \"issue\": \"Excessive CTAs\", \"actionable_recommendation\": \"Reduce CTAs to 3-5 and place them strategically\", \"metric_reference\": \"cta_count\"},\n  {\"priority\": 3, \"category\": \"Content Readability\", \"issue\": \"Dense content\", \"actionable_recommendation\": \"Break up content with headings, subheadings, and bullet points\", \"metric_reference\": \"word_count\"},\n  {\"priority\": 4, \"category\": \"UX\", \"issue\": \"Complex page structure\", \"actionable_recommendation\": \"Simplify page structure and improve navigation\", \"metric_reference\": \"None\"},\n  {\"priority\": 5, \"category\": \"Accessibility\", \"issue\": \"Image alt text coverage\", \"actionable_recommendation\": \"Maintain 100% alt text coverage for all images\", \"metric_reference\": \"images.missing_alt_percentage\"}\n]",
+  "scraped_metrics": {
+    "word_count": 708,
+    "headings": {
+      "h1": 1,
+      "h2": 14,
+      "h3": 5
+    },
+    "links": {
+      "internal": 6,
+      "external": 5
+    },
+    "cta_count": 13,
+    "images": {
+      "total": 2,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "DocFlex AI | Home",
+      "description": "DocFlex AI is an AI-powered healthcare platform. Get medical insights, prescription support, drug interaction checks, and clinical decision support for doctors, pharmacists, nurses, and medical students."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Excessive CTAs detected. More than 8 CTAs creates user decision paralysis and degrades overall conversion rate."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Excessive H2 headings",
+      "actionable_recommendation": "Reorganize content to reduce H2 headings to 5-7",
+      "metric_reference": "headings.h2"
+    },
+    {
+      "priority": 2,
+      "category": "CTA Optimization",
+      "issue": "Excessive CTAs",
+      "actionable_recommendation": "Reduce CTAs to 3-5 and place them strategically",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 3,
+      "category": "Content Readability",
+      "issue": "Dense content",
+      "actionable_recommendation": "Break up content with headings, subheadings, and bullet points",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 4,
+      "category": "UX",
+      "issue": "Complex page structure",
+      "actionable_recommendation": "Simplify page structure and improve navigation",
+      "metric_reference": "None"
+    },
+    {
+      "priority": 5,
+      "category": "Accessibility",
+      "issue": "Image alt text coverage",
+      "actionable_recommendation": "Maintain 100% alt text coverage for all images",
+      "metric_reference": "images.missing_alt_percentage"
+    }
+  ]
+}

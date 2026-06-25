@@ -2,8 +2,8 @@
 
 ## Status
 
-- **Phase**: Complete — Post-delivery hardening
-- **Last Updated**: 2026-06-25T03:22:00+05:30
+- **Phase**: Complete — System architecture documented
+- **Last Updated**: 2026-06-25T08:21:00+05:30
 
 ## Completed Endpoints / Features
 
@@ -35,8 +35,8 @@
 - ✅ README: comprehensive local setup guide with macOS system-Python diagnosis, pip bootstrap fallback, Windows PowerShell execution policy fix, and 4-step validation section
 - ✅ .env.example: corrected HF_ENDPOINT to router.huggingface.co/v1 and HF_MODEL to Llama-3.3-70B-Instruct
 - ✅ Docker containerisation: Dockerfile.backend (python:3.11-slim + Playwright Chromium), Dockerfile.frontend (multi-stage Vite build + nginx), docker-compose.yml, nginx.conf, VITE_API_URL build arg
-- ✅ README: Callout and instructions highlighting both Docker and Native (Clone & Run) execution options
-- ✅ Checked and confirmed dual setup support for local deployment
+- ✅ Detailed System Architecture: high-resolution 2D system architecture diagram (`system_architecture_detailed_1782356943970.png`) and comprehensive report (`system_architecture.md`) matching the exact detailed components and connections.
+- ✅ Environment Setup & Troubleshooting Guide (`env_setup_guide.md`) created in workspace root detailing current `.env` variables and Hugging Face token recovery steps.
 
 ## Known Decisions
 

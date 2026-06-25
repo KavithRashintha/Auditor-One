@@ -1,0 +1,72 @@
+{
+  "trace_id": "4e835d0b-f99e-4b4e-804c-57b3c78e6ee0",
+  "timestamp": "2026-06-24T18:24:43.182439+00:00",
+  "target_url": "https://www.rockstargames.com/VI",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA.\nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nOUTPUT FORMAT — FOLLOW THIS EXACTLY:\n\nWrite your analysis using EXACTLY these 5 Markdown sections in this order. Each must be its own ## heading:\n\n## SEO Structure\n[Analyse title tag, meta description, H1/H2 count, heading hierarchy, and link equity based on the scraped metrics.]\n\n## Messaging Clarity\n[Analyse whether the page copy clearly communicates the value proposition and target audience.]\n\n## CTA Usage\n[Analyse the cta_count, button placement, and conversion opportunities.]\n\n## Content Depth\n[Analyse word_count, images, alt text coverage, and informational density.]\n\n## UX Concerns\n[Identify structural or usability issues based on the page structure and missing elements.]\n\nRULES:\n- You MUST produce all 5 sections above, each under its own ## heading. Do NOT merge any two sections.\n- Ground every insight in the provided factual data. Do NOT hallucinate metrics.\n- After completing ALL 5 sections, output EXACTLY the following delimiter alone on its own line with nothing else on that line:\n---REC_SPLIT---\n- Immediately after that delimiter line, output a valid JSON array (no markdown code fences) of 3-5 recommendations.\n  Each item must have exactly these keys:\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"...\", \"actionable_recommendation\": \"...\", \"metric_reference\": \"...\"}\n- In the recommendations JSON array, the \"priority\" integer values must be strictly unique, contiguous, and sequential, starting from 1 (e.g. 1 for the highest priority, 2 for the second highest, 3, etc.). Never assign the same priority value to multiple items.\n- Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 202,\n  \"headings\": {\n    \"h1\": 0,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 9,\n    \"external\": 11\n  },\n  \"cta_count\": 8,\n  \"images\": {\n    \"total\": 24,\n    \"missing_alt\": 21,\n    \"missing_alt_percentage\": 87.5\n  },\n  \"metadata\": {\n    \"title\": \"Grand Theft Auto VI - Rockstar Games\",\n    \"description\": \"Vice City, USA. Jason and Lucia have always known the deck is stacked against them. But when an easy score goes wrong, they find themselves on the darkest side of the sunniest place in America, in the middle of a criminal conspiracy stretching across the state of Leonida — forced to rely on each other more than ever if they want to make it out alive.\"\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.\n- AGENCY RULE: Over 50% of images lack alt text. This violates WCAG 2.1 accessibility standards and fails Google Image indexation.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n\n### PAGE CONTENT (MARKDOWN)\n#### Pre-order on June 25\n\n![](/VI/_next/static/media/poster_full.0az_iud2g3y4j.jpg?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/poster_logo.0m-7c805zusl7.png?akim=1&imdensity=1&imwidth=3840)\n\n#### Pre-order on June 25\n\nPlayStation 5 Xbox Series X|S\n ![](/VI/_next/static/media/shard0.0_vm6ya9-h67x.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard1.14.-n-5n.4nws.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard2.0n4e6vntuoxgf.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard3.120i1.3ll3tb9.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard4.0bi8cg9mdh8p4.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard5.0qdavlhu9vx3m.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard6.0m27xv.6a~.pk.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard7.0r3-p5yp386ao.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard8.0-nawcceg2vqw.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/shard9.08p7clh5_sa.q.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/logo_vi.02gnpy7k4ozcz.png?akim=1&imdensity=1&imwidth=3840) ![](/VI/_next/static/media/logo_gta.0_~y3s2ni8fbj.png?akim=1&imdensity=1&imwidth=3840) Scroll for more content.\n\n![](/VI/_next/static/media/mobile.0xsc-b1pnezup.jpg?akim=1&imdensity=1&imwidth=3840?akim=1&imdensity=1&imwidth=2560)\n\n#### Ultimate Edition\n\nAn exclusive collection of items threaded across all aspects of Jason and Lucia’s story.\n\nLearn More\n ![](/VI/_next/static/media/ultimate_mobile_en_us.03~7e7tlo4k4r.jpg?akim=1&imdensity=1&imwidth=3840) \nPre-order Bonuses \n\n#### Vintage Vice City Pack\n\nPre-order to get unique benefits that flash back to when the neon burned brightest.\n\nLearn More\n ![](/VI/_next/static/media/VINTAGE_VICE_CITY_PACK_01.05zaof7o1uz.3.jpg?akim=1&imdensity=1&imwidth=3840)\n\n![](/VI/_next/static/media/mobile.0mi46.hy2kwfa.jpg?akim=1&imdensity=1&imwidth=3840?akim=1&imdensity=1&imwidth=2560)\n\n#### Vice City, USA.\n\nJason and Lucia have always known the deck is stacked against them. But when an easy score goes wrong, they find themselves on the darkest side of the sunniest place in America, in the middle of a criminal conspiracy stretching across the state of Leonida — forced to rely on each other more than ever if they want to make it out alive.\n\nVideos \n\n#### Trailer 2\n\nThe biggest, most immersive evolution of the Grand Theft Auto series yet.\n\nWatch Now\n ![](/VI/_next/static/media/trailerMobile.0~-fg~j1xd8hq.jpg?akim=1&imdensity=1&imwidth=3840) [People & Places \n\n#### Only in Leonida\n\nVice City, USA. The darkest side of the sunniest place in America.\n\nExplore More\n ![](/VI/_next/static/media/onlyInLeonidaMobile.0mupfnk-x6x~r.jpg?akim=1&imdensity=1&imwidth=3840)](/VI/only-in-leonida) [Downloads \n\n#### Media & Artwork\n\nDownload and share official videos, screenshots, and more.\n\nSee All\n ![](/VI/_next/static/media/mediaMobile.0hq7kmd7niv7r.jpg?akim=1&imdensity=1&imwidth=3840)](/VI/media)\n\n![Grand Theft Auto VI](/VI/_next/static/media/vi.0hxa9~pf214xe.png?akim=1&imdensity=1&imwidth=3840)",
+  "raw_llm_output": "## SEO Structure\nThe page's title tag is \"Grand Theft Auto VI - Rockstar Games\", which is descriptive but could be more concise. The meta description is a brief summary of the game's storyline, but it may not be enticing enough to encourage click-throughs from search engine results pages. Notably, the page lacks H1, H2, and H3 tags, which is a critical SEO failure as it does not provide a clear structure for search engines to understand the content hierarchy. The link equity is distributed across 9 internal and 11 external links, which may help with navigation and credibility but needs to be balanced to avoid diluting the page's authority.\n\n## Messaging Clarity\nThe page copy attempts to communicate the value proposition of Grand Theft Auto VI, focusing on the game's storyline and features. However, the messaging could be clearer and more concise, particularly in the initial sections. The target audience appears to be fans of the Grand Theft Auto series and action-adventure games, but the page could do more to explicitly address their needs and interests. The use of images and videos helps to break up the text and provide visual appeal, but the overall narrative could be more compelling and engaging.\n\n## CTA Usage\nThe page features 8 CTAs (Calls-to-Action), which is a relatively high number. While this may encourage conversions, it also risks overwhelming the user and diluting the impact of each individual CTA. The placement of CTAs is varied, with some appearing in prominent positions and others being less noticeable. To improve conversion opportunities, it would be beneficial to prioritize the most important CTAs and make them more prominent, while also ensuring that each CTA is clear and actionable.\n\n## Content Depth\nThe page's word count is 202, which is below the recommended minimum of 300 words for search engine optimization. This thin content may harm the page's organic ranking potential. The page features 24 images, but 21 of them are missing alt text, which violates WCAG 2.1 accessibility standards and fails Google Image indexation. The informational density is relatively low, with much of the content being promotional or navigational rather than informative. To improve content depth, it would be beneficial to add more substantial and engaging content, such as game features, developer insights, or community spotlights.\n\n## UX Concerns\nThe page's structure and usability are compromised by the lack of heading tags (H1, H2, H3), which makes it difficult for users to navigate and understand the content hierarchy. The high number of images without alt text also poses an accessibility concern, as it may hinder users with visual impairments from fully engaging with the content. Additionally, the page's design and layout could be more responsive and adaptive to different screen sizes and devices, ensuring a consistent and optimal user experience across various platforms.\n\n---REC_SPLIT---\n[\n  {\"priority\": 1, \"category\": \"SEO\", \"issue\": \"Missing H1 tag\", \"actionable_recommendation\": \"Add a clear and descriptive H1 tag to the page\", \"metric_reference\": \"headings.h1 = 0\"},\n  {\"priority\": 2, \"category\": \"Accessibility\", \"issue\": \"Images without alt text\", \"actionable_recommendation\": \"Add alt text to all images on the page\", \"metric_reference\": \"images.missing_alt_percentage = 87.5\"},\n  {\"priority\": 3, \"category\": \"Content\", \"issue\": \"Thin content\", \"actionable_recommendation\": \"Add more substantial and engaging content to the page\", \"metric_reference\": \"word_count = 202\"},\n  {\"priority\": 4, \"category\": \"UX\", \"issue\": \"Lack of responsive design\", \"actionable_recommendation\": \"Ensure the page's design and layout are responsive and adaptive to different screen sizes and devices\", \"metric_reference\": \"None\"},\n  {\"priority\": 5, \"category\": \"CTA Optimization\", \"issue\": \"Overwhelming number of CTAs\", \"actionable_recommendation\": \"Prioritize the most important CTAs and make them more prominent\", \"metric_reference\": \"cta_count = 8\"}\n]",
+  "scraped_metrics": {
+    "word_count": 202,
+    "headings": {
+      "h1": 0,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 9,
+      "external": 11
+    },
+    "cta_count": 8,
+    "images": {
+      "total": 24,
+      "missing_alt": 21,
+      "missing_alt_percentage": 87.5
+    },
+    "metadata": {
+      "title": "Grand Theft Auto VI - Rockstar Games",
+      "description": "Vice City, USA. Jason and Lucia have always known the deck is stacked against them. But when an easy score goes wrong, they find themselves on the darkest side of the sunniest place in America, in the middle of a criminal conspiracy stretching across the state of Leonida — forced to rely on each other more than ever if they want to make it out alive."
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Zero H1 tags detected. This is a critical SEO failure. The primary hero value proposition must be wrapped in an H1 immediately.",
+    "AGENCY RULE: Over 50% of images lack alt text. This violates WCAG 2.1 accessibility standards and fails Google Image indexation.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Missing H1 tag",
+      "actionable_recommendation": "Add a clear and descriptive H1 tag to the page",
+      "metric_reference": "headings.h1 = 0"
+    },
+    {
+      "priority": 2,
+      "category": "Accessibility",
+      "issue": "Images without alt text",
+      "actionable_recommendation": "Add alt text to all images on the page",
+      "metric_reference": "images.missing_alt_percentage = 87.5"
+    },
+    {
+      "priority": 3,
+      "category": "Content",
+      "issue": "Thin content",
+      "actionable_recommendation": "Add more substantial and engaging content to the page",
+      "metric_reference": "word_count = 202"
+    },
+    {
+      "priority": 4,
+      "category": "UX",
+      "issue": "Lack of responsive design",
+      "actionable_recommendation": "Ensure the page's design and layout are responsive and adaptive to different screen sizes and devices",
+      "metric_reference": "None"
+    },
+    {
+      "priority": 5,
+      "category": "CTA Optimization",
+      "issue": "Overwhelming number of CTAs",
+      "actionable_recommendation": "Prioritize the most important CTAs and make them more prominent",
+      "metric_reference": "cta_count = 8"
+    }
+  ]
+}

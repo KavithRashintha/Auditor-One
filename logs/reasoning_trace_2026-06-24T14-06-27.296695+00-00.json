@@ -1,0 +1,73 @@
+{
+  "trace_id": "6cdac8fd-02f9-402c-bc28-04c7e3b7af51",
+  "timestamp": "2026-06-24T14:06:27.296695+00:00",
+  "target_url": "https://www.luxuryx.lk/",
+  "system_prompt": "You are Auditor-One, an elite AI website auditor working for EIGHT25MEDIA. \nYour goal is to provide deeply analytical, strictly factual insights and actionable recommendations for a given webpage.\n\nYou will receive:\n1. FACTUAL SCRAPED METRICS JSON: Deterministic data about the page.\n2. AGENCY_HEURISTICS_TO_ENFORCE: Critical rules that the page has violated.\n3. PAGE CONTENT (MARKDOWN): The semantic structure and text of the page.\n\nINSTRUCTIONS:\n1. Stream your analysis progressively. Focus on:\n   - SEO structure & Messaging clarity\n   - CTA usage & Content depth\n   - Obvious UX or structural concerns\n2. You MUST ground every insight in the provided factual data. Do NOT hallucinate metrics.\n3. Write your analysis in clean Markdown format.\n4. When you have finished streaming your analysis, output EXACTLY the following delimiter on a new line:\n   ---REC_SPLIT---\n5. Immediately after the delimiter, output a valid JSON array of 3-5 recommendations.\n   Each recommendation must have this exact structure:\n   {\n     \"priority\": 1, // 1 to 3\n     \"category\": \"SEO\", // e.g. SEO, UX, Content, Conversion\n     \"issue\": \"Specific issue based on metrics\",\n     \"actionable_recommendation\": \"What to do to fix it\",\n     \"metric_reference\": \"e.g. headings.h1 or images.missing_alt\"\n   }\n6. Do NOT output anything after the JSON array.\n",
+  "user_prompt": "### FACTUAL SCRAPED METRICS JSON\n```json\n{\n  \"word_count\": 11,\n  \"headings\": {\n    \"h1\": 1,\n    \"h2\": 0,\n    \"h3\": 0\n  },\n  \"links\": {\n    \"internal\": 0,\n    \"external\": 0\n  },\n  \"cta_count\": 0,\n  \"images\": {\n    \"total\": 0,\n    \"missing_alt\": 0,\n    \"missing_alt_percentage\": 0.0\n  },\n  \"metadata\": {\n    \"title\": \"Checking your browser before accessing. Just a moment...\",\n    \"description\": null\n  }\n}\n```\n\n### AGENCY_HEURISTICS_TO_ENFORCE\n- AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.\n- AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.\n- AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.\n- AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers.\n\n### PAGE CONTENT (MARKDOWN)\n# Checking your browser before accessing\n\nPlease wait for up to 5 seconds...",
+  "raw_llm_output": "## Analysis\n### SEO Structure & Messaging Clarity\nThe page has a single `h1` heading, which is a good start for SEO structure. However, the `metadata.title` is \"Checking your browser before accessing. Just a moment...\", which may not be descriptive or attention-grabbing. The absence of a `metadata.description` is a significant issue, as it can reduce click-through rates from organic search results.\n\n### CTA Usage & Content Depth\nThe page has no CTAs, which means there is no clear conversion mechanism. This is a critical issue, as it prevents visitors from taking any meaningful action. The page content is also extremely thin, with a word count of only 11 words. This is well below the recommended minimum of 300 words, which can harm organic ranking potential.\n\n### Obvious UX or Structural Concerns\nThe page content is very limited, with only a brief message asking the user to wait. There are no internal or external links, which can make the page feel isolated and unhelpful. The lack of images or other media can also make the page feel barren and unengaging.\n\n---\n### Key Metrics:\n- Word count: 11\n- Headings: 1 `h1`, 0 `h2`, 0 `h3`\n- Links: 0 internal, 0 external\n- CTAs: 0\n- Images: 0 total, 0 missing alt\n\n---REC_SPLIT---\n[\n  {\n    \"priority\": 1,\n    \"category\": \"SEO\",\n    \"issue\": \"Missing meta description\",\n    \"actionable_recommendation\": \"Add a descriptive meta description to improve click-through rates\",\n    \"metric_reference\": \"metadata.description\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"Content\",\n    \"issue\": \"Thin content\",\n    \"actionable_recommendation\": \"Expand the page content to at least 300 words to improve organic ranking potential\",\n    \"metric_reference\": \"word_count\"\n  },\n  {\n    \"priority\": 3,\n    \"category\": \"Conversion\",\n    \"issue\": \"No CTAs detected\",\n    \"actionable_recommendation\": \"Add a primary CTA button to provide a clear conversion mechanism\",\n    \"metric_reference\": \"cta_count\"\n  },\n  {\n    \"priority\": 2,\n    \"category\": \"SEO\",\n    \"issue\": \"No external links present\",\n    \"actionable_recommendation\": \"Add outbound links to authoritative sources to improve trust signals\",\n    \"metric_reference\": \"links.external\"\n  },\n  {\n    \"priority\": 1,\n    \"category\": \"UX\",\n    \"issue\": \"Lack of engaging content\",\n    \"actionable_recommendation\": \"Add images or other media to make the page more engaging\",\n    \"metric_reference\": \"images.total\"\n  }\n]",
+  "scraped_metrics": {
+    "word_count": 11,
+    "headings": {
+      "h1": 1,
+      "h2": 0,
+      "h3": 0
+    },
+    "links": {
+      "internal": 0,
+      "external": 0
+    },
+    "cta_count": 0,
+    "images": {
+      "total": 0,
+      "missing_alt": 0,
+      "missing_alt_percentage": 0.0
+    },
+    "metadata": {
+      "title": "Checking your browser before accessing. Just a moment...",
+      "description": null
+    }
+  },
+  "heuristics_fired": [
+    "AGENCY RULE: Meta description is absent. This directly reduces click-through rate from organic search results.",
+    "AGENCY RULE: No CTAs detected. This page has no clear conversion mechanism. At minimum, one primary CTA button is required.",
+    "AGENCY RULE: Thin content detected (under 300 words). Search engines classify this as low-value copy, harming organic ranking potential.",
+    "AGENCY RULE: No external links present. Outbound links to authoritative sources serve as a baseline trust signal for search engine crawlers."
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "category": "SEO",
+      "issue": "Missing meta description",
+      "actionable_recommendation": "Add a descriptive meta description to improve click-through rates",
+      "metric_reference": "metadata.description"
+    },
+    {
+      "priority": 2,
+      "category": "Content",
+      "issue": "Thin content",
+      "actionable_recommendation": "Expand the page content to at least 300 words to improve organic ranking potential",
+      "metric_reference": "word_count"
+    },
+    {
+      "priority": 3,
+      "category": "Conversion",
+      "issue": "No CTAs detected",
+      "actionable_recommendation": "Add a primary CTA button to provide a clear conversion mechanism",
+      "metric_reference": "cta_count"
+    },
+    {
+      "priority": 2,
+      "category": "SEO",
+      "issue": "No external links present",
+      "actionable_recommendation": "Add outbound links to authoritative sources to improve trust signals",
+      "metric_reference": "links.external"
+    },
+    {
+      "priority": 1,
+      "category": "UX",
+      "issue": "Lack of engaging content",
+      "actionable_recommendation": "Add images or other media to make the page more engaging",
+      "metric_reference": "images.total"
+    }
+  ]
+}
